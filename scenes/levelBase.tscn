@@ -1,16 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://2f76q6xq8yaw"]
+[gd_scene load_steps=5 format=3 uid="uid://l1s5ipqtnioh"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_m6fdd"]
+[ext_resource type="Texture2D" uid="uid://drka0bnf14aip" path="res://assets/images/WHOPPERBOT.png" id="2_b0sft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flq83"]
+size = Vector2(128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fkih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b0sft")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="AnimatableBody2D" parent="."]
+script = ExtResource("1_m6fdd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_flq83")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CollisionShape2D"]
+scale = Vector2(0.42953, 0.42953)
 sprite_frames = SubResource("SpriteFrames_4fkih")
