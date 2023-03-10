@@ -13,6 +13,7 @@ tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_ctofh")
 
 [node name="Node2D" instance=ExtResource("1_71vry")]
+position = Vector2(0, 1)
 
 [node name="TileMap" type="TileMap" parent="Level" index="0"]
 tile_set = SubResource("TileSet_hyc01")
