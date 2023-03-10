@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://l1s5ipqtnioh"]
+[gd_scene load_steps=8 format=3 uid="uid://l1s5ipqtnioh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_m6fdd"]
 [ext_resource type="Texture2D" uid="uid://drka0bnf14aip" path="res://assets/images/WHOPPERBOT.png" id="2_b0sft"]
+[ext_resource type="Texture2D" uid="uid://dykcqta5g8xun" path="res://assets/images/icon.svg" id="3_mx82b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flq83"]
 size = Vector2(128, 128)
@@ -16,6 +17,15 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87s1h"]
+texture = ExtResource("3_mx82b")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tkcc7"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_87s1h")
 
 [node name="Node2D" type="Node2D"]
 
@@ -32,6 +42,7 @@ sprite_frames = SubResource("SpriteFrames_4fkih")
 [node name="Level" type="Node" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Level"]
+tile_set = SubResource("TileSet_tkcc7")
 format = 2
 
 [node name="Camera" type="Node" parent="."]
