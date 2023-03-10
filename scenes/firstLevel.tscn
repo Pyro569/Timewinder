@@ -14,7 +14,7 @@ sources/0 = SubResource("TileSetAtlasSource_ctofh")
 
 [node name="Node2D" instance=ExtResource("1_71vry")]
 
-[node name="TileMap2" type="TileMap" parent="Level" index="1"]
+[node name="TileMap" type="TileMap" parent="Level" index="0"]
 tile_set = SubResource("TileSet_hyc01")
 format = 2
 layer_0/tile_data = PackedInt32Array(131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 1, 0, 0, -65535, 0, 0, -131071, 0, 0, -131072, 0, 0, -65537, 0, 0)

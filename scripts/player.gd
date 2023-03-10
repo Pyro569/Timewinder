@@ -9,12 +9,13 @@ func respawn():
 	pass
 
 func _process(delta):
+	var new_pos = position
 	if Input.is_action_pressed("moveUp"):
-		position.y -= 10
-	elif Input.is_action_pressed("moveDown"):
-		position.y += 10
+		new_pos.y -= 1
+	if Input.is_action_pressed("moveDown"):
+		new_pos.y += 1
 	if Input.is_action_pressed("moveLeft"):
-		position.x -= 10
-	elif Input.is_action_pressed("moveRight"):
-		position.x += 10
-	
+		new_pos.x -= 1
+	if Input.is_action_pressed("moveRight"):
+		new_pos.x += 1
+	position = new_pos
