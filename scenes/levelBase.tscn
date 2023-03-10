@@ -28,3 +28,12 @@ shape = SubResource("RectangleShape2D_flq83")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CollisionShape2D"]
 scale = Vector2(0.42953, 0.42953)
 sprite_frames = SubResource("SpriteFrames_4fkih")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Level"]
+format = 2
+
+[node name="Camera" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
