@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7c25hj7ccyq2" path="res://assets/images/WHOPPERBOT - frame3.png" id="4_cukbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flq83"]
-size = Vector2(64, 64)
+size = Vector2(47, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fkih"]
 animations = [{
@@ -36,7 +36,7 @@ script = ExtResource("1_m6fdd")
 shape = SubResource("RectangleShape2D_flq83")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D/CollisionShape2D"]
-scale = Vector2(0.42953, 0.42953)
+scale = Vector2(0.161, 0.161)
 sprite_frames = SubResource("SpriteFrames_4fkih")
 
 [node name="Camera" type="Node" parent="."]
