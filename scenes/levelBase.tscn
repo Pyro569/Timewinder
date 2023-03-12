@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7c25hj7ccyq2" path="res://assets/images/WHOPPERBOT - frame3.png" id="4_cukbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flq83"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fkih"]
 animations = [{
@@ -27,18 +27,20 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="Node" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
 script = ExtResource("1_m6fdd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
 shape = SubResource("RectangleShape2D_flq83")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D/CollisionShape2D"]
 scale = Vector2(0.42953, 0.42953)
 sprite_frames = SubResource("SpriteFrames_4fkih")
-
-[node name="Level" type="Node" parent="."]
 
 [node name="Camera" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
+
+[node name="Level" type="Node" parent="."]
