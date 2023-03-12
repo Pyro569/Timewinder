@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_m6fdd"]
 [ext_resource type="Texture2D" uid="uid://drka0bnf14aip" path="res://assets/images/WHOPPERBOT.png" id="2_b0sft"]
-[ext_resource type="Texture2D" uid="uid://dmk42fahkq6eh" path="res://assets/images/WHOPPERBOT - frame2.png" id="3_i6fj1"]
-[ext_resource type="Texture2D" uid="uid://dynw0mip6x0b4" path="res://assets/images/WHOPPERBOT - frame3.png" id="4_cukbj"]
+[ext_resource type="Texture2D" uid="uid://c8ittc5nob62d" path="res://assets/images/WHOPPERBOT - frame2.png" id="3_i6fj1"]
+[ext_resource type="Texture2D" uid="uid://c7c25hj7ccyq2" path="res://assets/images/WHOPPERBOT - frame3.png" id="4_cukbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flq83"]
 size = Vector2(128, 128)

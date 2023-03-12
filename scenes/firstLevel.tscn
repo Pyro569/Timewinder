@@ -9,6 +9,7 @@ texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [sub_resource type="TileSet" id="TileSet_o5uwf"]
 tile_size = Vector2i(128, 128)
@@ -18,7 +19,10 @@ sources/0 = SubResource("TileSetAtlasSource_87s1h")
 [node name="Node2D" instance=ExtResource("1_71vry")]
 position = Vector2(0, 1)
 
+[node name="CollisionShape2D" parent="Player" index="0"]
+one_way_collision = true
+
 [node name="TileMap" type="TileMap" parent="Level" index="0"]
 tile_set = SubResource("TileSet_o5uwf")
 format = 2
-layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 1, 0, 0, -65535, 0, 0)
+layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0, -65535, 0, 0, 1, 0, 0)
