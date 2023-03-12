@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ld24wyye6qk"]
+
+[ext_resource type="VideoStream" path="res://assets/KobiWare.ogv" id="1_tkph5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 2.256
+anchor_bottom = 1.989
+offset_right = 0.0878906
+offset_bottom = 0.12793
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1088.0
+stream = ExtResource("1_tkph5")
+autoplay = true

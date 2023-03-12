@@ -501,9 +501,6 @@ sources/2 = SubResource("TileSetAtlasSource_vvwb6")
 
 [node name="Node2D" instance=ExtResource("1_71vry")]
 
-[node name="AnimatedSprite2D" parent="Player/CharacterBody2D/CollisionShape2D" index="0"]
-scale = Vector2(0.161, 0.161)
-
 [node name="TileMap" type="TileMap" parent="Level" index="0"]
 scale = Vector2(0.966312, 0.94387)
 tile_set = SubResource("TileSet_o5uwf")
