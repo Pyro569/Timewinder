@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://l1s5ipqtnioh"]
+[gd_scene load_steps=8 format=3 uid="uid://l1s5ipqtnioh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_m6fdd"]
 [ext_resource type="Texture2D" uid="uid://drka0bnf14aip" path="res://assets/images/WHOPPERBOT.png" id="2_b0sft"]
 [ext_resource type="Texture2D" uid="uid://c8ittc5nob62d" path="res://assets/images/WHOPPERBOT - frame2.png" id="3_i6fj1"]
 [ext_resource type="Texture2D" uid="uid://c7c25hj7ccyq2" path="res://assets/images/WHOPPERBOT - frame3.png" id="4_cukbj"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flq83"]
 size = Vector2(47, 48)
@@ -42,5 +43,6 @@ sprite_frames = SubResource("SpriteFrames_4fkih")
 [node name="Camera" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
+script = ExtResource("5_1clpx")
 
 [node name="Level" type="Node" parent="."]
