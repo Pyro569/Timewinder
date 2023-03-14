@@ -24,12 +24,10 @@ func _process(delta):
 			time_travelling = true
 			if future:
 				future = false
-				print("future")
 				get_node("/root/Node2D/Camera/Camera2D").position = past_cam
 				get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2(past_cam - future_cam)
 			else:
 				future = true
-				print("past")
 				get_node("/root/Node2D/Camera/Camera2D").position = future_cam
 				get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2(future_cam - past_cam)
 	else:
