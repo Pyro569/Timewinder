@@ -546,7 +546,6 @@ limit_right = 1000000000
 limit_bottom = 1000000000
 
 [node name="TileMap" type="TileMap" parent="Level" index="0"]
-scale = Vector2(0.966312, 0.94387)
 tile_set = SubResource("TileSet_o5uwf")
 format = 2
 layer_0/name = "Objects"
