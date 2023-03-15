@@ -12,6 +12,7 @@ func get_input():
 	velocity = input_direction * speed
 
 func _physics_process(delta):
+	#print(position)
 	get_input()
 	if velocity.x != 0 or velocity.y != 0:
 		$CollisionShape2D/AnimatedSprite2D.play()
