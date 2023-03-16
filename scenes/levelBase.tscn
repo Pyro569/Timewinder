@@ -44,7 +44,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="Player" type="Node" parent="."]
 
@@ -87,4 +87,4 @@ offset_right = 1178.0
 offset_bottom = 670.0
 texture = ExtResource("9_7803a")
 
-[connection signal="body_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_body_entered"]
+[connection signal="area_shape_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_area_shape_entered"]

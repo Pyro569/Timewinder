@@ -575,3 +575,5 @@ offset_left = 324.0
 offset_right = 2346.0
 offset_bottom = 2012.0
 scale = Vector2(1.01007, 0.897319)
+
+[connection signal="body_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_body_entered"]
