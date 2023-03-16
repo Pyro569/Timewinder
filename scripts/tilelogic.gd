@@ -17,7 +17,7 @@ func _ready():
 	for cell in get_used_cells_by_id(0, 6): # past cam
 		past_cam = (cell + Vector2i(1, 1)) * cell_size
 	for cell in get_used_cells_by_id(0, 4): # level end
-		get_node("/root/Node2D/Level/MagnetLevelEnd").duplicate(7).global_position = Vector2(cell * cell_size)
+		get_node("/root/Node2D/Level/MagnetLevelEnd").global_position = cell * cell_size
 		print(Vector2(cell * cell_size))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
