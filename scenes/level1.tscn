@@ -569,3 +569,9 @@ script = ExtResource("8_4xa77")
 
 [node name="MagnetLevelEnd" parent="Level" index="1"]
 z_index = 1
+
+[node name="TextureRect" parent="Effects" index="0"]
+offset_left = 324.0
+offset_right = 2346.0
+offset_bottom = 2012.0
+scale = Vector2(1.01007, 0.897319)

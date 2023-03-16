@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://n1gbitqsg1tc"]
+
+[ext_resource type="Shader" path="res://assets/shaders/crt.gdshader" id="1_gja46"]
+
+[resource]
+shader = ExtResource("1_gja46")
+shader_parameter/scanline_count = 50.0
