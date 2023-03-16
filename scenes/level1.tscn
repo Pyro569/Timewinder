@@ -568,7 +568,7 @@ layer_2/tile_data = PackedInt32Array(-1638384, 2, 0, -1572848, 2, 0, -1507312, 2
 script = ExtResource("8_4xa77")
 
 [node name="MagnetLevelEnd" parent="Level" index="1"]
-z_index = 1
+scale = Vector2(1.333, 1.333)
 
 [node name="TextureRect" parent="Effects" index="0"]
 offset_left = 324.0

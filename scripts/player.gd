@@ -19,3 +19,4 @@ func _physics_process(delta):
 	else:
 		$CollisionShape2D/AnimatedSprite2D.stop()
 	move_and_slide()
+
