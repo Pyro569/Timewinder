@@ -66,6 +66,7 @@ script = ExtResource("5_1clpx")
 [node name="Level" type="Node" parent="."]
 
 [node name="MagnetLevelEnd" type="Area2D" parent="Level"]
+scale = Vector2(1.333, 1.333)
 script = ExtResource("6_oun64")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MagnetLevelEnd"]
