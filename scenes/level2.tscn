@@ -536,7 +536,7 @@ sources/5 = SubResource("TileSetAtlasSource_ipe4d")
 sources/6 = SubResource("TileSetAtlasSource_s211u")
 sources/7 = SubResource("TileSetAtlasSource_kc4bd")
 
-[node name="Node2D" instance=ExtResource("1_ck2bc")]
+[node name="level2" instance=ExtResource("1_ck2bc")]
 
 [node name="TileMap" type="TileMap" parent="Level" index="0"]
 tile_set = SubResource("TileSet_3dd6r")

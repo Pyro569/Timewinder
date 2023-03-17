@@ -44,7 +44,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D2" type="Node2D"]
+[node name="levelBase" type="Node2D"]
 
 [node name="Player" type="Node" parent="."]
 
