@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bciad83l7evvm"
-path="res://.godot/imported/conveyorstop.png-765d06972b1849d03d0d544379c37d23.ctex"
+uid="uid://bxxuv840qfb6c"
+path="res://.godot/imported/signalleft.png-fc2237835ae239a2d75c02879f88c6db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/conveyorstop.png"
-dest_files=["res://.godot/imported/conveyorstop.png-765d06972b1849d03d0d544379c37d23.ctex"]
+source_file="res://assets/objects/signalleft.png"
+dest_files=["res://.godot/imported/signalleft.png-fc2237835ae239a2d75c02879f88c6db.ctex"]
 
 [params]
 
