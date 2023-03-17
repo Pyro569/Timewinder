@@ -6,7 +6,7 @@ var future = true
 var time_travelling = false
 
 var timer = Timer.new()
-var unixTime = 0
+var unixTime = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
