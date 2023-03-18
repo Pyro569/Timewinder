@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_67n0m"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="8_4xa77"]
 
-[node name="level1" instance=ExtResource("1_0uc2v")]
+[node name="Node2D" instance=ExtResource("1_0uc2v")]
 
 [node name="Camera2D" parent="Camera" index="0"]
 z_index = 1

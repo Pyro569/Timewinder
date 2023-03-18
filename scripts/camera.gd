@@ -4,7 +4,7 @@ var intended_x = 1152.0
 var intended_y = 648.0
 
 func _process(delta):
-	var player = get_node("/root/" + get_tree().current_scene.get_name() + "/Player/CharacterBody2D")
+	var player = get_node("/root/Node2D/Player/CharacterBody2D")
 	var velocity = Vector2.ZERO
 	var iterations = 1
 	var viewport_size = get_viewport_rect().size
