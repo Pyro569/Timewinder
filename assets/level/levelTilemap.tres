@@ -1,11 +1,28 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://b22okpg63e5n7"]
+[gd_resource type="TileSet" load_steps=33 format=3 uid="uid://b22okpg63e5n7"]
 
 [ext_resource type="Texture2D" uid="uid://c66ibf3qwis6w" path="res://assets/level/placeholdertileset.png" id="1_5olok"]
+[ext_resource type="Texture2D" uid="uid://da1i3735c0evd" path="res://assets/objects/box.png" id="1_nmvxp"]
 [ext_resource type="Texture2D" uid="uid://px2riwvuv1mr" path="res://assets/level/concrete64.png" id="2_v0vth"]
 [ext_resource type="Texture2D" uid="uid://bk3snccnddwhp" path="res://assets/objects/flag.png" id="3_ot0wp"]
+[ext_resource type="Texture2D" uid="uid://b6v7tmkwg4ait" path="res://assets/objects/conveyorrigtht.png" id="3_qbv1r"]
+[ext_resource type="Texture2D" uid="uid://dtlm7llch5dj1" path="res://assets/objects/conveyorup.png" id="4_21qjh"]
 [ext_resource type="Texture2D" uid="uid://pwoy3jebud2c" path="res://assets/objects/start.png" id="4_w3vbl"]
 [ext_resource type="Texture2D" uid="uid://ojqqyh2ahmjl" path="res://assets/objects/pastcam.png" id="5_7aibs"]
+[ext_resource type="Texture2D" uid="uid://dxagg2eq5rxwa" path="res://assets/objects/signaldown.png" id="5_f7ma4"]
+[ext_resource type="Texture2D" uid="uid://bxxuv840qfb6c" path="res://assets/objects/signalleft.png" id="6_7ybea"]
 [ext_resource type="Texture2D" uid="uid://cagloe8jpbdk8" path="res://assets/objects/futurecam.png" id="6_s0vih"]
+[ext_resource type="Texture2D" uid="uid://d4swvhepflxo" path="res://assets/objects/signalright.png" id="7_akkxk"]
+[ext_resource type="Texture2D" uid="uid://by6ndvjpc567k" path="res://assets/objects/signalup.png" id="8_u4q2t"]
+[ext_resource type="Texture2D" uid="uid://cbysi2soouw8g" path="res://assets/objects/button.png" id="10_mb1vl"]
+[ext_resource type="Texture2D" uid="uid://cu3jtxqx8ut4n" path="res://assets/objects/conveyordown.png" id="15_u0y53"]
+[ext_resource type="Texture2D" uid="uid://cili4ob8hbc3r" path="res://assets/objects/conveyorleft.png" id="16_boqi6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d103o"]
+texture = ExtResource("1_nmvxp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k74bn"]
 texture = ExtResource("1_5olok")
@@ -485,11 +502,60 @@ texture_region_size = Vector2i(64, 64)
 11:0/0/terrains_peering_bit/bottom_left_corner = 0
 11:0/0/terrains_peering_bit/left_side = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuc1q"]
+texture = ExtResource("3_qbv1r")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rntx3"]
+texture = ExtResource("4_21qjh")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cwyet"]
+texture = ExtResource("5_f7ma4")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_236bb"]
+texture = ExtResource("6_7ybea")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mt6v3"]
+texture = ExtResource("7_akkxk")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11it0"]
+texture = ExtResource("8_u4q2t")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvwb6"]
 texture = ExtResource("2_v0vth")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/z_index = -1
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4v216"]
+texture = ExtResource("10_mb1vl")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
@@ -521,6 +587,20 @@ texture_region_size = Vector2i(64, 64)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_at258"]
+texture = ExtResource("15_u0y53")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pj48t"]
+texture = ExtResource("16_boqi6")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [resource]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
@@ -533,3 +613,13 @@ sources/4 = SubResource("TileSetAtlasSource_bfv8f")
 sources/5 = SubResource("TileSetAtlasSource_ipe4d")
 sources/6 = SubResource("TileSetAtlasSource_s211u")
 sources/7 = SubResource("TileSetAtlasSource_kc4bd")
+sources/0 = SubResource("TileSetAtlasSource_d103o")
+sources/3 = SubResource("TileSetAtlasSource_4v216")
+sources/8 = SubResource("TileSetAtlasSource_at258")
+sources/9 = SubResource("TileSetAtlasSource_pj48t")
+sources/10 = SubResource("TileSetAtlasSource_fuc1q")
+sources/11 = SubResource("TileSetAtlasSource_rntx3")
+sources/12 = SubResource("TileSetAtlasSource_cwyet")
+sources/13 = SubResource("TileSetAtlasSource_236bb")
+sources/14 = SubResource("TileSetAtlasSource_mt6v3")
+sources/15 = SubResource("TileSetAtlasSource_11it0")
