@@ -1,5 +1,6 @@
 extends TileMap
 
+var cell_size = tile_set.tile_size
 var future_cam
 var past_cam
 var future = true
@@ -11,21 +12,31 @@ var unixTime = 3
 var noTravel = preload("res://assets/sounds/effects/noTravel.wav")
 var playnotravelsound = preload("res://assets/sounds/effects/noTravel.wav")
 
+var id_to_node = {
+	7: "Camera/Camera2D",
+	5: "Player/CharacterBody2D",
+	4: "Level/MagnetLevelEnd",
+	0: "Level/Box"
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var cell_size = tile_set.tile_size
+	
+	# setup tilemap
+	for id in id_to_node:
+		for cell in get_used_cells_by_id(0, id):
+			get_node("/root/Node2D/" + id_to_node[id]).global_position = cell * cell_size
+	# edge-cases
 	for cell in get_used_cells_by_id(0, 7): # future cam
-		future_cam = (cell + Vector2i(1, 1)) * cell_size
-		get_node("/root/Node2D/Camera/Camera2D").position = future_cam
-	for cell in get_used_cells_by_id(0, 5): # player start
-		var player_size = Vector2i(get_node("/root/" + get_tree().current_scene.get_name() + "/Player/CharacterBody2D/CollisionShape2D").get_shape().get_rect().size)
-		get_node("/root/Node2D/Player/CharacterBody2D").position = cell * cell_size + (cell_size - player_size) / 2
+		future_cam = cell * cell_size
 	for cell in get_used_cells_by_id(0, 6): # past cam
-		past_cam = (cell + Vector2i(1, 1)) * cell_size
-	for cell in get_used_cells_by_id(0, 4): # level end
-		get_node("/root/Node2D/Level/MagnetLevelEnd").global_position = cell * cell_size
-	for cell in get_used_cells_by_id(0, 0): # box
-		get_node("/root/Node2D/Level/Box").global_position = cell * cell_size
+		past_cam = cell * cell_size
+	for cell in get_used_cells_by_id(0, 5): # player start
+		var player_size = Vector2i(get_node("/root/Node2D/Player/CharacterBody2D/CollisionShape2D").get_shape().get_rect().size)
+		get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2((cell_size - player_size) / 2)
+	# signals
+	
+	
 		
 	add_child(timer)
 	timer.set_wait_time(1.0)
