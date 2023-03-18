@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://l1s5ipqtnioh"]
+[gd_scene load_steps=14 format=3 uid="uid://l1s5ipqtnioh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_m6fdd"]
 [ext_resource type="Texture2D" uid="uid://cxsb7f1xuc2e3" path="res://assets/images/WHOPPERBOT BETTERv0.0.1.png" id="2_7qq70"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
 [ext_resource type="Script" path="res://scripts/levelend.gd" id="6_oun64"]
+[ext_resource type="Texture2D" uid="uid://cb08dmlq0awje" path="res://assets/level/box.png" id="6_tkpqt"]
 [ext_resource type="Texture2D" uid="uid://m835qdi8eteo" path="res://assets/level/magnet.png" id="7_p1wko"]
 [ext_resource type="Material" uid="uid://n1gbitqsg1tc" path="res://assets/shaders/crt_shader_material.tres" id="8_xc4qv"]
 [ext_resource type="Texture2D" uid="uid://clyt08k8aw2wq" path="res://assets/images/white.png" id="9_7803a"]
@@ -36,6 +37,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_4l5gp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tkpqt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="levelBase" type="Node2D"]
 
 [node name="Player" type="Node" parent="."]
@@ -59,17 +71,30 @@ script = ExtResource("5_1clpx")
 [node name="Level" type="Node" parent="."]
 
 [node name="MagnetLevelEnd" type="Area2D" parent="Level"]
+position = Vector2(64, 0)
 scale = Vector2(1.333, 1.333)
 script = ExtResource("6_oun64")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MagnetLevelEnd"]
-position = Vector2(64, 0)
 shape = SubResource("RectangleShape2D_nbuma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/MagnetLevelEnd/CollisionShape2D"]
 position = Vector2(-9.53674e-07, -1.19209e-07)
 scale = Vector2(0.0985626, 0.0991736)
 sprite_frames = SubResource("SpriteFrames_8yv0e")
+
+[node name="Box" type="Area2D" parent="Level"]
+position = Vector2(128, 0)
+scale = Vector2(1.333, 1.333)
+script = ExtResource("6_oun64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Box"]
+shape = SubResource("RectangleShape2D_nbuma")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Box/CollisionShape2D"]
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(0.750188, 0.750188)
+sprite_frames = SubResource("SpriteFrames_4l5gp")
 
 [node name="Effects" type="Node" parent="."]
 
@@ -82,3 +107,4 @@ offset_bottom = 670.0
 texture = ExtResource("9_7803a")
 
 [connection signal="area_shape_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_area_shape_entered"]
+[connection signal="area_shape_entered" from="Level/Box" to="Level/Box" method="_on_area_shape_entered"]
