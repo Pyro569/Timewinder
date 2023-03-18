@@ -24,7 +24,8 @@ func _ready():
 		past_cam = (cell + Vector2i(1, 1)) * cell_size
 	for cell in get_used_cells_by_id(0, 4): # level end
 		get_node("/root/" + get_tree().current_scene.get_name() + "/Level/MagnetLevelEnd").global_position = cell * cell_size
-		print(Vector2(cell * cell_size))
+	for cell in get_used_cells_by_id(0, 0): # box
+		get_node("/root/" + get_tree().current_scene.get_name() + "/Level/Box").global_position = cell * cell_size
 		
 	add_child(timer)
 	timer.set_wait_time(1.0)
