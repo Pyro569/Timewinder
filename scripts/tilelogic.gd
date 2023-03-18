@@ -8,6 +8,9 @@ var time_travelling = false
 var timer = Timer.new()
 var unixTime = 3
 
+var noTravel = preload("res://assets/sounds/effects/noTravel.wav")
+var playnotravelsound = preload("res://assets/sounds/effects/noTravel.wav")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var cell_size = tile_set.tile_size
@@ -47,7 +50,8 @@ func _process(delta):
 				get_node("/root/" + get_tree().current_scene.get_name() + "/Player/CharacterBody2D").position += Vector2(future_cam - past_cam)
 				unixTime = 0
 	elif unixTime < 2:
-		#play the sound for not allowed to time travel
+		$AudioStreamPlayer2D.stream = playnotravelsound
+		$AudioStreamPlayer2D.play()
 		time_travelling = false
 	else:
 		time_travelling = false
