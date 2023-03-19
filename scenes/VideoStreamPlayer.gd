@@ -8,5 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(!(is_playing())):
+	if(!(is_playing()) || Input.is_action_pressed("escape")):
 		get_tree().change_scene_to_file("res://scenes/titlescreen.tscn")
+	
