@@ -59,7 +59,10 @@ func _ready():
 			while signal_end.x < current_cell.x:
 				current_cell -= Vector2i(1, 0)
 				if activatees.has(current_cell):
-					signals[activators[cell]] = activatees[cell]
+					signals[activators[cell]] = activatees[current_cell]
+					break
+					
+	print(signals)
 			
 	
 		
