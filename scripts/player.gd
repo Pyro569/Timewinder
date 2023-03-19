@@ -5,18 +5,18 @@ extends CharacterBody2D
 func get_input():
 	var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
 	if velocity.x < 0:
-		$CollisionShape2D/AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.flip_h = true
 	elif velocity.x > 0:
-		$CollisionShape2D/AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.flip_h = false
 	velocity = input_direction * speed
 
 func _physics_process(delta):
 	#print(position)
 	get_input()
 	if velocity.x != 0 or velocity.y != 0:
-		$CollisionShape2D/AnimatedSprite2D.play()
+		$AnimatedSprite2D.play()
 	else:
-		$CollisionShape2D/AnimatedSprite2D.stop()
+		$AnimatedSprite2D.stop()
 	move_and_slide()
 
 
