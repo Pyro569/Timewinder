@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://clyt08k8aw2wq" path="res://assets/images/white.png" id="9_7803a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flq83"]
-size = Vector2(41, 46)
+size = Vector2(42, 46)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fkih"]
 animations = [{
@@ -69,12 +69,10 @@ animations = [{
 script = ExtResource("1_m6fdd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
-position = Vector2(-0.5, 1)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_flq83")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
-position = Vector2(-0.499999, 8.34465e-07)
-scale = Vector2(0.979167, 1)
 sprite_frames = SubResource("SpriteFrames_4fkih")
 
 [node name="Camera" type="Node" parent="."]
