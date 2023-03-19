@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://l1s5ipqtnioh"]
+[gd_scene load_steps=17 format=3 uid="uid://l1s5ipqtnioh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_m6fdd"]
 [ext_resource type="Texture2D" uid="uid://cxsb7f1xuc2e3" path="res://assets/images/WHOPPERBOT BETTERv0.0.1.png" id="2_7qq70"]
