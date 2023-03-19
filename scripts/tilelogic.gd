@@ -37,7 +37,7 @@ func _ready():
 			var new_node = parent_node.duplicate()
 			parent_node.add_child(new_node)
 			new_node.global_position = cell * cell_size
-			new_node.scale /= 1.333
+			new_node.scale /= parent_node.scale
 			if activator_ids.has(id):
 				activators[cell] = new_node
 			if activatee_ids.has(id):
