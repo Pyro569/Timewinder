@@ -17,12 +17,7 @@ func _process(delta):
 	else:
 		scale = viewport_size.y / intended_y
 		
-	if player.velocity.x >= (1000*iterations):
-		velocity.x -= 1000
-		iterations = iterations - 1
-	elif player.velocity.x >= (1000*iterations):
-		velocity.x += 1000
-		iterations = iterations + 1
+
 	
 
 	set_zoom(Vector2(scale, scale))
