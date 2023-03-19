@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brlc6iuy38cn6"
+path="res://.godot/imported/timewinder song.mp3-8d546c089078eb58065908c3cf62b77c.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/timewinder song.mp3"
+dest_files=["res://.godot/imported/timewinder song.mp3-8d546c089078eb58065908c3cf62b77c.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=120.0
+beat_count=259
+bar_beats=4
