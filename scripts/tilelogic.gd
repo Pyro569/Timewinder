@@ -21,11 +21,45 @@ var id_to_node = {
 }
 
 var MAX_SIGNAL_LENGTH = 64
+var signal_arrows = [15, 14, 12, 13] # never eat soggy waffles
 var activator_ids = [3]
 var activatee_ids = [4]
 var activators = {}
 var activatees = {}
-var signals = {}
+
+func resolve_signal(activator: Vector2i, direction: int, past_arrows = []):
+	#print(activator, direction, past_arrows)
+	past_arrows.append(activator)
+	var direction_vect
+	var direction_expression
+	match direction:
+		0:
+			direction_vect = Vector2i(0, -MAX_SIGNAL_LENGTH)
+			direction_expression = func(a, b): return a.y < b.y
+		1:
+			direction_vect = Vector2i(MAX_SIGNAL_LENGTH, 0)
+			direction_expression = func(a, b): return a.x > b.x
+		2:
+			direction_vect = Vector2i(0, MAX_SIGNAL_LENGTH)
+			direction_expression = func(a, b): return a.y > b.y
+		3:
+			direction_vect = Vector2i(-MAX_SIGNAL_LENGTH, 0)
+			direction_expression = func(a, b): return a.x < b.x
+	var signal_end = activator + direction_vect
+	var current_cell = activator
+	#print(signal_end, current_cell, direction_expression.call(signal_end, current_cell), signal_end.x < current_cell.x)
+	while direction_expression.call(signal_end, current_cell):
+		current_cell += direction_vect / MAX_SIGNAL_LENGTH
+		#print(current_cell)
+		if activatees.has(current_cell):
+			return current_cell
+		elif signal_arrows.has(get_cell_source_id(0, current_cell)):
+			var arrow_direction = signal_arrows.find(get_cell_source_id(0, current_cell))
+			if !past_arrows.has(current_cell): # prevent infinite loop
+				return resolve_signal(current_cell, arrow_direction, past_arrows) # recursively go through every arrow
+			else:
+				#print("test")
+				break
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,7 +76,7 @@ func _ready():
 				activators[cell] = new_node
 			if activatee_ids.has(id):
 				activatees[cell] = new_node
-	# edge-cases
+	# required objects
 	for cell in get_used_cells_by_id(0, 7): # future cam
 		get_node("/root/Node2D/Camera/Camera2D").global_position = cell * cell_size
 		future_cam = cell * cell_size
@@ -54,15 +88,13 @@ func _ready():
 	# signals
 	for activator_id in activator_ids:
 		for cell in get_used_cells_by_id(0, activator_id):
-			var signal_end = cell - Vector2i(MAX_SIGNAL_LENGTH, 0)
-			var current_cell = cell
-			while signal_end.x < current_cell.x:
-				current_cell -= Vector2i(1, 0)
-				if activatees.has(current_cell):
-					signals[activators[cell]] = activatees[current_cell]
-					break
+			var activatee = resolve_signal(cell, 3)
+			if activatee != null:
+				Globals.signals[activators[cell]] = activatees[activatee]
+			else:
+				Globals.signals[activators[cell]] = null
 					
-	print(signals)
+	#print(Globals.signals)
 			
 	
 		
