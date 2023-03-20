@@ -11,6 +11,8 @@ var unixTime = 3
 
 var noTravel = preload("res://assets/sounds/effects/noTravel.wav")
 var playnotravelsound = preload("res://assets/sounds/effects/noTravel.wav")
+var play_yes_travel_sounds = [preload("res://assets/sounds/effects/yesTravel1.wav")]
+
 var pressed_time_travel_last_frame = false
 
 
@@ -26,6 +28,10 @@ var activator_ids = [3]
 var activatee_ids = [4]
 var activators = {}
 var activatees = {}
+
+func get_random_teleport_sound():
+	# This is here incase we need more sfx for teleporting
+	return play_yes_travel_sounds[0]
 
 func resolve_signal(activator: Vector2i, direction: int, past_arrows = []):
 	#print(activator, direction, past_arrows)
@@ -109,6 +115,12 @@ func _on_Timer_timeout():
 func _process(_delta):
 	if Input.is_action_pressed("timeTravel") and unixTime >= 2:
 		if !time_travelling:
+			# You don't need to check if the time travel button is pressed for the first frame since
+			# it will automatically go to the else if unix timeis less than 2
+			# so this just plays the sfx
+			get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").stream = get_random_teleport_sound()
+			get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").play()
+			
 			time_travelling = true
 			if future:
 				future = false
