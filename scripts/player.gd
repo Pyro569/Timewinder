@@ -10,7 +10,7 @@ func get_input():
 		$AnimatedSprite2D.flip_h = false
 	velocity = input_direction * speed
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#print(position)
 	get_input()
 	if velocity.x != 0 or velocity.y != 0:

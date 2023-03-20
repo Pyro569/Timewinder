@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dweeaa32t3o0q"]
+[gd_scene load_steps=9 format=3 uid="uid://b5asp6q1787o0"]
 
 [ext_resource type="PackedScene" uid="uid://l1s5ipqtnioh" path="res://scenes/levelBase.tscn" id="1_ht1pf"]
-[ext_resource type="Script" path="res://scenes/titlescreen.gd" id="2_8g1ui"]
+[ext_resource type="Script" path="res://scripts/titlescreen.gd" id="2_34dsw"]
 [ext_resource type="TileSet" uid="uid://b22okpg63e5n7" path="res://assets/level/levelTilemap.tres" id="2_f3f57"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="3_14c0n"]
 [ext_resource type="Script" path="res://scripts/titlescreenbutton.gd" id="4_jpsaw"]
@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://clyt08k8aw2wq" path="res://assets/images/white.png" id="6_mcl1h"]
 
 [node name="Node2D" instance=ExtResource("1_ht1pf")]
-script = ExtResource("2_8g1ui")
+script = ExtResource("2_34dsw")
 
-[node name="TileMap" type="TileMap" parent="Level" index="1"]
+[node name="TileMap" type="TileMap" parent="Level" index="0"]
 tile_set = ExtResource("2_f3f57")
 format = 2
 layer_0/name = "Objects"
@@ -95,6 +95,9 @@ offset_bottom = 50.9005
 scale = Vector2(1, 0.774758)
 text = "Start"
 script = ExtResource("4_jpsaw")
+
+[node name="Fadeout" parent="Effects" index="4"]
+color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="Effects/RichTextLabel/Button" to="Effects/RichTextLabel/Button" method="_on_pressed"]
 [connection signal="pressed" from="Effects/RichTextLabel2/Button" to="Effects/RichTextLabel2/Button" method="_on_pressed"]

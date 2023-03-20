@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 var last_frame_muted = false
 
 # kind of dumb to call every frame but i don't know how to do it otherwise
-func _process(delta):
+func _process(_delta):
 	if(Globals.muted):
 		set_volume_db(-1000.0)
 	else:

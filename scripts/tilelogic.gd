@@ -106,7 +106,7 @@ func _on_Timer_timeout():
 	unixTime = unixTime + 1
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("timeTravel") and unixTime >= 2:
 		if !time_travelling:
 			time_travelling = true
