@@ -63,7 +63,6 @@ func resolve_signal(activator: Vector2i, direction: int, past_arrows = []):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	# setup tilemap
 	for id in id_to_node:
 		for cell in get_used_cells_by_id(0, id):
