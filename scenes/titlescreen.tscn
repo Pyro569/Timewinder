@@ -99,11 +99,5 @@ script = ExtResource("4_jpsaw")
 [node name="Fadeout" parent="Effects" index="4"]
 color = Color(0, 0, 0, 0)
 
-[node name="TravelCounter" parent="Effects" index="6"]
-script = null
-
-[node name="TravelCounter2" parent="Effects" index="7"]
-script = null
-
 [connection signal="pressed" from="Effects/RichTextLabel/Button" to="Effects/RichTextLabel/Button" method="_on_pressed"]
 [connection signal="pressed" from="Effects/RichTextLabel2/Button" to="Effects/RichTextLabel2/Button" method="_on_pressed"]
