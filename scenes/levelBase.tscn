@@ -189,4 +189,28 @@ libraries = {
 "": SubResource("AnimationLibrary_dsug5")
 }
 
+[node name="TravelCounter" type="RichTextLabel" parent="Effects"]
+modulate = Color(0.980392, 0, 0.235294, 1)
+offset_left = 1131.0
+offset_top = -1562.0
+offset_right = 1387.0
+offset_bottom = -1493.0
+scale = Vector2(1.60002, 2.4)
+text = "Hit [W][A][S][D] to move John-E-VI"
+fit_content = true
+autowrap_mode = 0
+tab_size = 9
+
+[node name="TravelCounter2" type="RichTextLabel" parent="Effects"]
+modulate = Color(0.980392, 0, 0.235294, 1)
+offset_left = 753.0
+offset_top = 617.0
+offset_right = 1009.0
+offset_bottom = 686.0
+scale = Vector2(1.60002, 2.4)
+text = "Hit [W][A][S][D] to move John-E-VI"
+fit_content = true
+autowrap_mode = 0
+tab_size = 9
+
 [connection signal="area_shape_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_area_shape_entered"]
