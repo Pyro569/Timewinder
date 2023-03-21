@@ -27,7 +27,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbuma"]
-size = Vector2(48, 48)
+size = Vector2(63.991, 63.994)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8yv0e"]
 animations = [{
@@ -126,42 +126,42 @@ volume_db = 14.991
 
 [node name="MagnetLevelEnd" type="Area2D" parent="Level"]
 position = Vector2(-32, -96)
-scale = Vector2(1.333, 1.333)
 script = ExtResource("6_oun64")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MagnetLevelEnd"]
-position = Vector2(24.006, 24.006)
+position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_nbuma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/MagnetLevelEnd"]
-position = Vector2(24.006, 24.006)
-scale = Vector2(0.0985626, 0.0991736)
+position = Vector2(32, 32)
+scale = Vector2(0.131417, 0.132231)
 sprite_frames = SubResource("SpriteFrames_8yv0e")
 
-[node name="Box" type="Area2D" parent="Level"]
+[node name="Box" type="RigidBody2D" parent="Level"]
 position = Vector2(-32, -160)
-scale = Vector2(1.333, 1.333)
+mass = 0.01
+gravity_scale = 0.0
+lock_rotation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Box"]
-position = Vector2(24.006, 24.006)
+position = Vector2(32.003, 32.003)
 shape = SubResource("RectangleShape2D_nbuma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Box"]
-position = Vector2(24.006, 24.006)
-scale = Vector2(0.750188, 0.750188)
+position = Vector2(31.997, 32.003)
+scale = Vector2(1.00009, 1.00009)
 sprite_frames = SubResource("SpriteFrames_4l5gp")
 
 [node name="Button" type="Area2D" parent="Level"]
 position = Vector2(-32, -224)
-scale = Vector2(1.333, 1.333)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Button"]
-position = Vector2(24.006, 24.006)
+position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_nbuma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Button"]
-position = Vector2(24.006, 24.006)
-scale = Vector2(0.162203, 0.180496)
+position = Vector2(32, 32)
+scale = Vector2(0.216216, 0.240601)
 sprite_frames = SubResource("SpriteFrames_ln4jd")
 
 [node name="Effects" type="Node" parent="."]
@@ -180,6 +180,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("11_kv4tm")
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Effects"]
 root_node = NodePath("../Fadeout")
@@ -189,4 +190,3 @@ libraries = {
 }
 
 [connection signal="area_shape_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_area_shape_entered"]
-[connection signal="area_shape_entered" from="Level/Box" to="Level/Box" method="_on_area_shape_entered"]
