@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctx7udhsjpbn"]
+[gd_scene load_steps=6 format=3 uid="uid://ctx7udhsjpbn"]
 
 [ext_resource type="PackedScene" uid="uid://l1s5ipqtnioh" path="res://scenes/levelBase.tscn" id="1_0uc2v"]
-[ext_resource type="TileSet" uid="uid://b22okpg63e5n7" path="res://assets/level/levelTilemap.tres" id="2_23riu"]
+[ext_resource type="TileSet" uid="uid://bpmf5c0jgra2j" path="res://assets/level/levelTilemap.tres" id="2_23riu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_hjdk5"]
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="5_yalm8"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="8_4xa77"]
 
 [node name="Node2D" instance=ExtResource("1_0uc2v")]
@@ -45,5 +46,31 @@ offset_left = 324.0
 offset_right = 2346.0
 offset_bottom = 2012.0
 scale = Vector2(1.01007, 0.897319)
+
+[node name="Tutorial" type="RichTextLabel" parent="Effects" index="3"]
+modulate = Color(0.980392, 0, 0.235294, 1)
+offset_left = 1131.0
+offset_top = -1562.0
+offset_right = 1387.0
+offset_bottom = -1493.0
+scale = Vector2(1.60002, 2.4)
+text = "Hit [W][A][S][D] to move John-E-VI"
+fit_content = true
+autowrap_mode = 0
+tab_size = 9
+script = ExtResource("5_yalm8")
+
+[node name="Tutorial2" type="RichTextLabel" parent="Effects" index="4"]
+modulate = Color(0.980392, 0, 0.235294, 1)
+offset_left = 753.0
+offset_top = 617.0
+offset_right = 1009.0
+offset_bottom = 686.0
+scale = Vector2(1.60002, 2.4)
+text = "Hit [W][A][S][D] to move John-E-VI"
+fit_content = true
+autowrap_mode = 0
+tab_size = 9
+script = ExtResource("5_yalm8")
 
 [connection signal="body_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_body_entered"]
