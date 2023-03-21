@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://l1s5ipqtnioh"]
+[gd_scene load_steps=23 format=3 uid="uid://l1s5ipqtnioh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_m6fdd"]
 [ext_resource type="Texture2D" uid="uid://cxsb7f1xuc2e3" path="res://assets/images/WHOPPERBOT BETTERv0.0.1.png" id="2_7qq70"]
@@ -25,6 +25,14 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_arei6"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0s4ib"]
+gradient = SubResource("Gradient_arei6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbuma"]
 size = Vector2(63.991, 63.994)
@@ -112,6 +120,13 @@ shape = SubResource("RectangleShape2D_flq83")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_4fkih")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player/CharacterBody2D"]
+scale = Vector2(36.64, 29)
+energy = 0.1
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.811765)
+texture = SubResource("GradientTexture2D_0s4ib")
 
 [node name="Camera" type="Node" parent="."]
 
