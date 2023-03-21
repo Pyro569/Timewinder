@@ -73,4 +73,6 @@ autowrap_mode = 0
 tab_size = 9
 script = ExtResource("5_yalm8")
 
+[node name="arbitraryuselessnodethatnobodyshoulddeletetonotbreakgame" type="Node" parent="Effects" index="7"]
+
 [connection signal="body_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_body_entered"]

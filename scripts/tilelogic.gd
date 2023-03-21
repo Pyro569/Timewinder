@@ -122,6 +122,12 @@ func _on_Timer_timeout():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if get_node("/root/Node2D/Effects/arbitraryuselessnodethatnobodyshoulddeletetonotbreakgame"):
+		travelCounterNode.text = ""
+		travelCounterNode2.text = ""
+	else:
+		travelCounterNode.text = "Travels: " + str(timeTravels)
+		travelCounterNode2.text = "Travels: " + str(timeTravels)
 	if Input.is_action_pressed("timeTravel") and unixTime >= 2:
 		if !time_travelling:
 			# You don't need to check if the time travel button is pressed for the first frame since
@@ -143,6 +149,7 @@ func _process(_delta):
 				future = true
 				get_node("/root/Node2D/Camera/Camera2D").position = future_cam
 				get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2(future_cam - past_cam)
+				unixTime = 0
 				timeTravels = timeTravels + 1
 				travelCounterNode.text = "Travels: " + str(timeTravels)
 				travelCounterNode2.text = "Travels: " + str(timeTravels)
