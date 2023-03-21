@@ -1,13 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://l1s5ipqtnioh"]
+[gd_scene load_steps=26 format=3 uid="uid://l1s5ipqtnioh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_m6fdd"]
 [ext_resource type="Texture2D" uid="uid://cxsb7f1xuc2e3" path="res://assets/images/WHOPPERBOT BETTERv0.0.1.png" id="2_7qq70"]
+[ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_2jam3"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
 [ext_resource type="Script" path="res://scripts/levelend.gd" id="6_oun64"]
 [ext_resource type="Texture2D" uid="uid://cb08dmlq0awje" path="res://assets/level/box.png" id="6_tkpqt"]
 [ext_resource type="Texture2D" uid="uid://bfmrhuor0lhtw" path="res://assets/level/button.png" id="7_me0ir"]
 [ext_resource type="Texture2D" uid="uid://m835qdi8eteo" path="res://assets/level/magnet.png" id="7_p1wko"]
+[ext_resource type="Script" path="res://scripts/box.gd" id="8_p80gk"]
+[ext_resource type="Material" uid="uid://n1gbitqsg1tc" path="res://assets/shaders/crt_shader_material.tres" id="8_xc4qv"]
+[ext_resource type="Texture2D" uid="uid://clyt08k8aw2wq" path="res://assets/images/white.png" id="9_7803a"]
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flq83"]
@@ -33,7 +37,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbuma"]
-size = Vector2(63.991, 63.994)
+size = Vector2(42, 46)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8yv0e"]
 animations = [{
@@ -45,6 +49,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubs3o"]
+size = Vector2(64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4l5gp"]
 animations = [{
@@ -121,11 +128,26 @@ shape = SubResource("RectangleShape2D_flq83")
 sprite_frames = SubResource("SpriteFrames_4fkih")
 
 [node name="PointLight2D" type="PointLight2D" parent="Player/CharacterBody2D"]
+position = Vector2(-5, 10)
 scale = Vector2(36.64, 29)
 energy = 0.1
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.811765)
 texture = SubResource("GradientTexture2D_0s4ib")
+
+[node name="Box" type="RigidBody2D" parent="Player/CharacterBody2D"]
+position = Vector2(-21, -22)
+collision_layer = 2
+collision_mask = 2
+mass = 0.01
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+script = ExtResource("3_vblnu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D/Box"]
+position = Vector2(21, 23)
+shape = SubResource("RectangleShape2D_nbuma")
 
 [node name="Camera" type="Node" parent="."]
 
@@ -153,16 +175,19 @@ sprite_frames = SubResource("SpriteFrames_8yv0e")
 
 [node name="Box" type="RigidBody2D" parent="Level"]
 position = Vector2(-32, -160)
+collision_layer = 2
+collision_mask = 2
 mass = 0.01
 gravity_scale = 0.0
 lock_rotation = true
+script = ExtResource("8_p80gk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Box"]
-position = Vector2(32.003, 32.003)
-shape = SubResource("RectangleShape2D_nbuma")
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_ubs3o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Box"]
-position = Vector2(31.997, 32.003)
+position = Vector2(32, 32)
 scale = Vector2(1.00009, 1.00009)
 sprite_frames = SubResource("SpriteFrames_4l5gp")
 
@@ -179,6 +204,14 @@ scale = Vector2(0.216216, 0.240601)
 sprite_frames = SubResource("SpriteFrames_ln4jd")
 
 [node name="Effects" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Effects"]
+material = ExtResource("8_xc4qv")
+offset_left = 148.0
+offset_top = 107.0
+offset_right = 1178.0
+offset_bottom = 670.0
+texture = ExtResource("9_7803a")
 
 [node name="Fadeout" type="ColorRect" parent="Effects"]
 z_index = 14
