@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctx7udhsjpbn"]
+[gd_scene load_steps=7 format=3 uid="uid://ctx7udhsjpbn"]
 
 [ext_resource type="PackedScene" uid="uid://l1s5ipqtnioh" path="res://scenes/levelBase.tscn" id="1_0uc2v"]
-[ext_resource type="TileSet" uid="uid://b22okpg63e5n7" path="res://assets/level/levelTilemap.tres" id="2_23riu"]
+[ext_resource type="TileSet" uid="uid://bpmf5c0jgra2j" path="res://assets/level/levelTilemap.tres" id="2_23riu"]
+[ext_resource type="Script" path="res://scripts/PointLight2D.gd" id="2_wtj7h"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_hjdk5"]
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="5_yalm8"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="8_4xa77"]
 
 [node name="Node2D" instance=ExtResource("1_0uc2v")]
+
+[node name="PointLight2D" parent="Player/CharacterBody2D" index="2"]
+script = ExtResource("2_wtj7h")
 
 [node name="Camera2D" parent="Camera" index="0"]
 z_index = 1
@@ -41,12 +45,6 @@ script = ExtResource("8_4xa77")
 stream = ExtResource("4_hjdk5")
 volume_db = 24.0
 
-[node name="TextureRect" parent="Effects" index="0"]
-offset_left = 324.0
-offset_right = 2346.0
-offset_bottom = 2012.0
-scale = Vector2(1.01007, 0.897319)
-
 [node name="Tutorial" type="RichTextLabel" parent="Effects" index="3"]
 modulate = Color(0.980392, 0, 0.235294, 1)
 offset_left = 1131.0
@@ -73,6 +71,6 @@ autowrap_mode = 0
 tab_size = 9
 script = ExtResource("5_yalm8")
 
-[node name="arbitraryuselessnodethatnobodyshoulddeletetonotbreakgame" type="Node" parent="Effects" index="7"]
+[node name="arbitraryuselessnodethatnobodyshoulddeletetonotbreakgame" type="Node" parent="Effects" index="6"]
 
 [connection signal="body_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_body_entered"]
