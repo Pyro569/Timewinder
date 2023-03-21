@@ -104,6 +104,7 @@ _data = {
 [node name="Player" type="Node" parent="."]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
+z_index = 1
 script = ExtResource("1_m6fdd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
