@@ -2,7 +2,7 @@
 
 [ext_resource type="VideoStream" path="res://assets/valveprizz.ogv" id="1_yf0it"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_ypc8f"]
-[ext_resource type="Script" path="res://scenes/VideoStreamPlayer.gd" id="3_jjqgc"]
+[ext_resource type="Script" path="res://scripts/VideoStreamPlayer.gd" id="3_681nj"]
 
 [node name="Camera2D" type="Camera2D"]
 zoom = Vector2(0.5, 0.5)
@@ -26,4 +26,4 @@ size_flags_horizontal = 4
 stream = ExtResource("1_yf0it")
 autoplay = true
 expand = true
-script = ExtResource("3_jjqgc")
+script = ExtResource("3_681nj")

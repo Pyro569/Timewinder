@@ -21,6 +21,9 @@ var travelCounterNode2
 
 var pressed_time_travel_last_frame = false
 
+var konamied = false
+var konamiedPart1
+var konamiedPart2
 
 var id_to_node = {
 	4: "Level/MagnetLevelEnd",
@@ -141,7 +144,8 @@ func _process(_delta):
 				future = false
 				get_node("/root/Node2D/Camera/Camera2D").position = past_cam
 				get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2(past_cam - future_cam)
-				unixTime = 0
+				if konamied == false:
+					unixTime = 0
 				timeTravels = timeTravels + 1
 				travelCounterNode.text = "Travels: " + str(timeTravels)
 				travelCounterNode2.text = "Travels: " + str(timeTravels)
@@ -149,7 +153,8 @@ func _process(_delta):
 				future = true
 				get_node("/root/Node2D/Camera/Camera2D").position = future_cam
 				get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2(future_cam - past_cam)
-				unixTime = 0
+				if konamied == false:
+					unixTime = 0
 				timeTravels = timeTravels + 1
 				travelCounterNode.text = "Travels: " + str(timeTravels)
 				travelCounterNode2.text = "Travels: " + str(timeTravels)
@@ -161,3 +166,17 @@ func _process(_delta):
 	else:
 		time_travelling = false
 	pressed_time_travel_last_frame = Input.is_action_pressed("timeTravel")
+	
+	if unixTime >= 3:
+		unixTime = 3
+	
+	if Input.is_action_just_pressed("konamiPart1"):
+		konamiedPart1 = true
+		print("Cheat code part 1 activated!!!!")
+	if Input.is_action_just_pressed("konamiPart2") and konamiedPart1 == true:
+		konamiedPart2 = true
+		print("Cheat code part 2 activated!!!!")
+	if Input.is_action_just_pressed("konamiPart3") and konamiedPart2 == true:
+		konamied = true
+		print("Cheat code successfully activated!!!!")
+
