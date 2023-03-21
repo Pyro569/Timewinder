@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 func _physics_process(delta):
-	move_and_slide()
+	set_linear_velocity(Vector2(0, 0))
