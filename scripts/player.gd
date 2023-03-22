@@ -19,4 +19,3 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.stop()
 	move_and_slide()
 
-

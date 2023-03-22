@@ -1,11 +1,28 @@
+class_name Player
+
 extends RigidBody2D
 
+# This is now a RigidBody2D so other rigidbody collision will work
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+# TODO:
+# Some issues that need to be fixed with the player after this migration
+# Going diagonally against a wall removes the velocity, stopping the player in place
+# Sometimes where going parellel to a wall, the player will seemingly randomly get stuck
 
+@export var speed = 200
+func get_input():
+	var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
+	if get_linear_velocity().x < 0:
+		$AnimatedSprite2D.flip_h = true
+	elif get_linear_velocity().x > 0:
+		$AnimatedSprite2D.flip_h = false
+	set_linear_velocity(input_direction * speed)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	set_linear_velocity(get_parent().get_velocity())
+func _physics_process(_delta):
+	#print(position)
+	get_input()
+	if get_linear_velocity().x != 0 or get_linear_velocity().y != 0:
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.stop()
+
