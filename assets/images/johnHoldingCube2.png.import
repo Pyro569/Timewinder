@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7fu8v0wo4mmk"
-path="res://.godot/imported/pixil-frame-0 (1).png-dd281b006190728c1984e63b7fbc1178.ctex"
+uid="uid://dn2l8g7b65ova"
+path="res://.godot/imported/johnHoldingCube2.png-3890d9ea23001847ecf581abfb835aa7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pixil-frame-0 (1).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (1).png-dd281b006190728c1984e63b7fbc1178.ctex"]
+source_file="res://assets/images/johnHoldingCube2.png"
+dest_files=["res://.godot/imported/johnHoldingCube2.png-3890d9ea23001847ecf581abfb835aa7.ctex"]
 
 [params]
 

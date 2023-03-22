@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dskon3uwelevy"
-path="res://.godot/imported/pixil-frame-0 (4).png-e54fedf04d15800d0e05f83fc9cde3e8.ctex"
+uid="uid://st24i1q554ea"
+path="res://.godot/imported/johnDifferentShading.png-d8854afea006419a56ce4a9d56cb4f79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pixil-frame-0 (4).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (4).png-e54fedf04d15800d0e05f83fc9cde3e8.ctex"]
+source_file="res://assets/images/johnDifferentShading.png"
+dest_files=["res://.godot/imported/johnDifferentShading.png-d8854afea006419a56ce4a9d56cb4f79.ctex"]
 
 [params]
 

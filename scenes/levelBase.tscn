@@ -1,17 +1,17 @@
 [gd_scene load_steps=26 format=3 uid="uid://l1s5ipqtnioh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_m6fdd"]
-[ext_resource type="Texture2D" uid="uid://cxsb7f1xuc2e3" path="res://assets/images/WHOPPERBOT BETTERv0.0.1.png" id="2_7qq70"]
+[ext_resource type="Texture2D" uid="uid://st24i1q554ea" path="res://assets/images/johnDifferentShading.png" id="2_nl206"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_2jam3"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
 [ext_resource type="Script" path="res://scripts/levelend.gd" id="6_oun64"]
 [ext_resource type="Texture2D" uid="uid://cb08dmlq0awje" path="res://assets/level/box.png" id="6_tkpqt"]
-[ext_resource type="Texture2D" uid="uid://bfmrhuor0lhtw" path="res://assets/level/button.png" id="7_me0ir"]
 [ext_resource type="Texture2D" uid="uid://m835qdi8eteo" path="res://assets/level/magnet.png" id="7_p1wko"]
 [ext_resource type="Script" path="res://scripts/box.gd" id="8_p80gk"]
 [ext_resource type="Material" uid="uid://n1gbitqsg1tc" path="res://assets/shaders/crt_shader_material.tres" id="8_xc4qv"]
 [ext_resource type="Texture2D" uid="uid://clyt08k8aw2wq" path="res://assets/images/white.png" id="9_7803a"]
+[ext_resource type="Texture2D" uid="uid://dskon3uwelevy" path="res://assets/images/button.png" id="10_jal6k"]
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flq83"]
@@ -21,7 +21,7 @@ size = Vector2(42, 46)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7qq70")
+"texture": ExtResource("2_nl206")
 }],
 "loop": true,
 "name": &"default",
@@ -68,7 +68,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_me0ir")
+"texture": ExtResource("10_jal6k")
 }],
 "loop": true,
 "name": &"default",
@@ -200,7 +200,7 @@ shape = SubResource("RectangleShape2D_nbuma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Button"]
 position = Vector2(32, 32)
-scale = Vector2(0.216216, 0.240601)
+scale = Vector2(0.65625, 0.71875)
 sprite_frames = SubResource("SpriteFrames_ln4jd")
 
 [node name="Effects" type="Node" parent="."]
