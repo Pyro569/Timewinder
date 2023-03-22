@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://l1s5ipqtnioh" path="res://scenes/levelBase.tscn" id="1_ht1pf"]
 [ext_resource type="Script" path="res://scripts/titlescreen.gd" id="2_34dsw"]
-[ext_resource type="TileSet" uid="uid://b22okpg63e5n7" path="res://assets/level/levelTilemap.tres" id="2_f3f57"]
+[ext_resource type="TileSet" uid="uid://bpmf5c0jgra2j" path="res://assets/level/levelTilemap.tres" id="2_f3f57"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="3_14c0n"]
 [ext_resource type="Script" path="res://scripts/titlescreenbutton.gd" id="4_jpsaw"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_teyiw"]

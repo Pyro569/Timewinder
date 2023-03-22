@@ -126,8 +126,11 @@ func _on_Timer_timeout():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if get_node("/root/Node2D/Effects/arbitraryuselessnodethatnobodyshoulddeletetonotbreakgame"):
-		travelCounterNode.text = ""
-		travelCounterNode2.text = ""
+		travelCounterNode.visible = false
+		travelCounterNode2.visible = false
+	if get_node("/root/Node2D/Effects/Level1"):
+		travelCounterNode.text = "[W][A][S][D] to move John-E-VI"
+		travelCounterNode2.text = "[W][A][S][D] to move John-E-VI"
 	else:
 		travelCounterNode.text = "Travels: " + str(timeTravels)
 		travelCounterNode2.text = "Travels: " + str(timeTravels)
