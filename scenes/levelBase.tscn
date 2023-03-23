@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://l1s5ipqtnioh"]
+[gd_scene load_steps=26 format=3 uid="uid://l1s5ipqtnioh"]
 
 [ext_resource type="Texture2D" uid="uid://st24i1q554ea" path="res://assets/images/johnDifferentShading.png" id="2_nl206"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
@@ -8,16 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://cb08dmlq0awje" path="res://assets/level/box.png" id="6_tkpqt"]
 [ext_resource type="Texture2D" uid="uid://m835qdi8eteo" path="res://assets/level/magnet.png" id="7_p1wko"]
 [ext_resource type="Script" path="res://scripts/box.gd" id="8_p80gk"]
-[ext_resource type="Material" uid="uid://n1gbitqsg1tc" path="res://assets/shaders/crt_shader_material.tres" id="8_xc4qv"]
-[ext_resource type="Texture2D" uid="uid://clyt08k8aw2wq" path="res://assets/images/white.png" id="9_7803a"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="9_a1xmy"]
 [ext_resource type="Texture2D" uid="uid://dskon3uwelevy" path="res://assets/images/button.png" id="10_jal6k"]
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fo6o"]
 friction = 0.0
+absorbent = true
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rdbmr"]
-radius = 24.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf85u"]
+size = Vector2(42, 46)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fkih"]
 animations = [{
@@ -39,7 +39,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbuma"]
-size = Vector2(42, 46)
+size = Vector2(64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8yv0e"]
 animations = [{
@@ -122,7 +122,7 @@ _data = {
 [node name="Player" type="Node" parent="."]
 
 [node name="CharacterBody2D" type="RigidBody2D" parent="Player"]
-position = Vector2(-21, -22)
+z_index = 5
 collision_layer = 2
 collision_mask = 2
 mass = 0.01
@@ -134,15 +134,14 @@ linear_damp_mode = 1
 script = ExtResource("3_vblnu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
-position = Vector2(21, 23)
-shape = SubResource("CircleShape2D_rdbmr")
+shape = SubResource("RectangleShape2D_rf85u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
-position = Vector2(21, 22)
+position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_4fkih")
 
 [node name="PointLight2D" type="PointLight2D" parent="Player/CharacterBody2D"]
-position = Vector2(16, 32)
+position = Vector2(-2.86102e-06, -5.72205e-06)
 scale = Vector2(36.64, 29)
 energy = 0.1
 shadow_enabled = true
@@ -176,7 +175,7 @@ scale = Vector2(0.131417, 0.132231)
 sprite_frames = SubResource("SpriteFrames_8yv0e")
 
 [node name="Box" type="RigidBody2D" parent="Level"]
-position = Vector2(-24, -152)
+position = Vector2(-32, -160)
 collision_layer = 2
 collision_mask = 2
 mass = 0.01
@@ -186,16 +185,17 @@ lock_rotation = true
 script = ExtResource("8_p80gk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Box"]
-position = Vector2(24, 24)
+position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_ubs3o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Box"]
-position = Vector2(24, 24)
+position = Vector2(32, 32)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_4l5gp")
 
 [node name="Button" type="Area2D" parent="Level"]
 position = Vector2(-32, -224)
+script = ExtResource("9_a1xmy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Button"]
 position = Vector2(32, 32)
@@ -203,18 +203,9 @@ shape = SubResource("RectangleShape2D_nbuma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Button"]
 position = Vector2(32, 32)
-scale = Vector2(0.65625, 0.71875)
 sprite_frames = SubResource("SpriteFrames_ln4jd")
 
 [node name="Effects" type="Node" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="Effects"]
-material = ExtResource("8_xc4qv")
-offset_left = 148.0
-offset_top = 107.0
-offset_right = 1178.0
-offset_bottom = 670.0
-texture = ExtResource("9_7803a")
 
 [node name="Fadeout" type="ColorRect" parent="Effects"]
 z_index = 14
@@ -245,6 +236,7 @@ tab_size = 9
 
 [node name="TravelCounter2" type="RichTextLabel" parent="Effects"]
 modulate = Color(0.980392, 0, 0.235294, 1)
+z_index = 10
 offset_left = 753.0
 offset_top = 617.0
 offset_right = 1009.0
@@ -255,5 +247,5 @@ fit_content = true
 autowrap_mode = 0
 tab_size = 9
 
-[connection signal="area_shape_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_area_shape_entered"]
 [connection signal="body_entered" from="Level/MagnetLevelEnd" to="Player/CharacterBody2D" method="_on_magnet_level_end_body_entered"]
+[connection signal="body_entered" from="Level/Button" to="Player/CharacterBody2D" method="_on_button_body_entered"]

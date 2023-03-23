@@ -1,18 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpxwuwk3wkjny"]
+[gd_scene load_steps=6 format=3 uid="uid://cpxwuwk3wkjny"]
 
 [ext_resource type="PackedScene" uid="uid://l1s5ipqtnioh" path="res://scenes/levelBase.tscn" id="1_0uc2v"]
 [ext_resource type="TileSet" uid="uid://bpmf5c0jgra2j" path="res://assets/level/levelTilemap.tres" id="2_23riu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_hjdk5"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="8_4xa77"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy1aq"]
+size = Vector2(42, 46)
+
 [node name="Node2D" instance=ExtResource("1_0uc2v")]
 
-[node name="TileMap" type="TileMap" parent="Level" index="3"]
+[node name="CollisionShape2D" parent="Player/CharacterBody2D" index="0"]
+shape = SubResource("RectangleShape2D_sy1aq")
+
+[node name="TileMap" type="TileMap" parent="Level" index="0"]
 tile_set = ExtResource("2_23riu")
 format = 2
 layer_0/name = "Objects"
 layer_0/z_index = -3
-layer_0/tile_data = PackedInt32Array(-1179618, 0, 0, -1310694, 7, 0, 917524, 6, 0, -1507296, 3, 0, -1507300, 15, 0, -1507302, 15, 0, -1507304, 15, 0, -1507306, 15, 0, -1507308, 15, 0, -1507301, 13, 0, -1507303, 13, 0, -1507305, 13, 0, -1507307, 13, 0, -1572844, 13, 0, -1572842, 13, 0, -1572840, 13, 0, -1572838, 13, 0, -1572836, 13, 0, -1572846, 12, 0, -1572843, 12, 0, -1572841, 12, 0, -1572839, 12, 0, -1572837, 12, 0, -1572832, 5, 0, 786452, 4, 0)
+layer_0/tile_data = PackedInt32Array(-1179618, 0, 0, -1310694, 7, 0, 917524, 6, 0, -1572832, 5, 0, 786452, 4, 0, -1441759, 3, 0)
 layer_1/name = "Wall"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
@@ -33,12 +39,12 @@ script = ExtResource("8_4xa77")
 stream = ExtResource("4_hjdk5")
 volume_db = 24.0
 
-[node name="TravelCounter" parent="Effects" index="3"]
+[node name="TravelCounter" parent="Effects" index="2"]
 text = "[W][A][S][D] to move John-E-VI"
 
-[node name="TravelCounter2" parent="Effects" index="4"]
+[node name="TravelCounter2" parent="Effects" index="3"]
 text = "[W][A][S][D] to move John-E-VI"
 
-[node name="Level1" type="Node" parent="Effects" index="5"]
+[node name="Level1" type="Node" parent="Effects" index="4"]
 
 [connection signal="body_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_body_entered"]

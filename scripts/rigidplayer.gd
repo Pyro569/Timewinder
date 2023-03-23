@@ -11,9 +11,9 @@ func _ready():
 @export var speed = 200
 func get_input():
 	var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
-	if get_linear_velocity().x < 0:
+	if input_direction.x < 0:
 		$AnimatedSprite2D.flip_h = true
-	elif get_linear_velocity().x > 0:
+	elif input_direction.x > 0:
 		$AnimatedSprite2D.flip_h = false
 	set_linear_velocity(input_direction * speed)
 

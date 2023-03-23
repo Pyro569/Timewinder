@@ -52,12 +52,6 @@ script = ExtResource("5_tt11p")
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_4t8yq")
 
-[node name="TextureRect" parent="Effects" index="0"]
-offset_left = 324.0
-offset_right = 2346.0
-offset_bottom = 2012.0
-scale = Vector2(1.01007, 0.897319)
-
 [node name="Tutorial" type="RichTextLabel" parent="Effects" index="3"]
 modulate = Color(0.980392, 0, 0.235294, 1)
 offset_left = 1131.0
@@ -84,6 +78,6 @@ autowrap_mode = 0
 tab_size = 9
 script = ExtResource("6_xw7jy")
 
-[node name="arbitraryuselessnodethatnobodyshoulddeletetonotbreakgame" type="Node" parent="Effects" index="7"]
+[node name="arbitraryuselessnodethatnobodyshoulddeletetonotbreakgame" type="Node" parent="Effects" index="6"]
 
 [connection signal="body_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_body_entered"]
