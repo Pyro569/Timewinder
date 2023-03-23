@@ -7,6 +7,9 @@
 
 [node name="Node2D" instance=ExtResource("1_0uc2v")]
 
+[node name="RigidBody2D" parent="Player" index="0"]
+speed = 200
+
 [node name="TileMap" type="TileMap" parent="Level" index="3"]
 tile_set = ExtResource("2_23riu")
 format = 2

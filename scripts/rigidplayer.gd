@@ -9,6 +9,10 @@ extends RigidBody2D
 # Going diagonally against a wall removes the velocity, stopping the player in place
 # Sometimes where going parellel to a wall, the player will seemingly randomly get stuck
 
+func _ready():
+	set_contact_monitor(true)
+	set_max_contacts_reported(4)
+
 @export var speed = 200
 func get_input():
 	var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
@@ -25,4 +29,5 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
+	print("\n" + str(get_colliding_bodies()) + "\n")
 
