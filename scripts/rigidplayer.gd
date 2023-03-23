@@ -4,11 +4,6 @@ extends RigidBody2D
 
 # This is now a RigidBody2D so other rigidbody collision will work
 
-# TODO:
-# Some issues that need to be fixed with the player after this migration
-# Going diagonally against a wall removes the velocity, stopping the player in place
-# Sometimes where going parellel to a wall, the player will seemingly randomly get stuck
-
 func _ready():
 	set_contact_monitor(true)
 	set_max_contacts_reported(4)
@@ -29,5 +24,4 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
-	print("\n" + str(get_colliding_bodies()) + "\n")
-
+	#print("\n" + str(get_colliding_bodies()) + "\n")

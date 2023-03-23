@@ -102,8 +102,8 @@ func _ready():
 	for cell in get_used_cells_by_id(0, 6): # past cam
 		past_cam = cell * cell_size
 	for cell in get_used_cells_by_id(0, 5): # player start
-		var player_size = Vector2i(get_node("/root/Node2D/Player/RigidBody2D/CollisionShape2D").get_shape().get_rect().size)
-		get_node("/root/Node2D/Player/RigidBody2D").position = cell * cell_size + (cell_size - player_size) / 2
+		var player_size = Vector2i(get_node("/root/Node2D/Player/CharacterBody2D/CollisionShape2D").get_shape().get_rect().size)
+		get_node("/root/Node2D/Player/CharacterBody2D").position = cell * cell_size + (cell_size - player_size) / 2
 	# signals
 	for activator_id in activator_ids:
 		for cell in get_used_cells_by_id(0, activator_id):
@@ -125,10 +125,11 @@ func _on_Timer_timeout():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if get_node("/root/Node2D/Effects/arbitraryuselessnodethatnobodyshoulddeletetonotbreakgame"):
+	
+	if get_node_or_null("/root/Node2D/Effects/arbitraryuselessnodethatnobodyshoulddeletetonotbreakgame"):
 		travelCounterNode.visible = false
 		travelCounterNode2.visible = false
-	if get_node("/root/Node2D/Effects/Level1"):
+	if get_node_or_null("/root/Node2D/Effects/Level1"):
 		travelCounterNode.text = "[W][A][S][D] to move John-E-VI"
 		travelCounterNode2.text = "[W][A][S][D] to move John-E-VI"
 	else:

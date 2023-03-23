@@ -121,7 +121,7 @@ _data = {
 
 [node name="Player" type="Node" parent="."]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Player"]
+[node name="CharacterBody2D" type="RigidBody2D" parent="Player"]
 position = Vector2(-21, -22)
 collision_layer = 2
 collision_mask = 2
@@ -133,15 +133,15 @@ freeze_mode = 1
 linear_damp_mode = 1
 script = ExtResource("3_vblnu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
 position = Vector2(21, 23)
 shape = SubResource("CircleShape2D_rdbmr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/RigidBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
 position = Vector2(21, 22)
 sprite_frames = SubResource("SpriteFrames_4fkih")
 
-[node name="PointLight2D" type="PointLight2D" parent="Player/RigidBody2D"]
+[node name="PointLight2D" type="PointLight2D" parent="Player/CharacterBody2D"]
 position = Vector2(16, 32)
 scale = Vector2(36.64, 29)
 energy = 0.1
@@ -162,6 +162,8 @@ volume_db = 14.991
 
 [node name="MagnetLevelEnd" type="Area2D" parent="Level"]
 position = Vector2(-32, -96)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("6_oun64")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MagnetLevelEnd"]
@@ -218,7 +220,7 @@ texture = ExtResource("9_7803a")
 z_index = 14
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 script = ExtResource("11_kv4tm")
 metadata/_edit_use_anchors_ = true
 
@@ -254,3 +256,4 @@ autowrap_mode = 0
 tab_size = 9
 
 [connection signal="area_shape_entered" from="Level/MagnetLevelEnd" to="Level/MagnetLevelEnd" method="_on_area_shape_entered"]
+[connection signal="body_entered" from="Level/MagnetLevelEnd" to="Player/CharacterBody2D" method="_on_magnet_level_end_body_entered"]
