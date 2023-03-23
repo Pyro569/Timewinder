@@ -24,4 +24,6 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
+	if Input.is_action_pressed("reload"):
+		get_tree().reload_current_scene()
 	#print("\n" + str(get_colliding_bodies()) + "\n")
