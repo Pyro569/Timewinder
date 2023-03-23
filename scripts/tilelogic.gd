@@ -148,6 +148,7 @@ func _process(_delta):
 				future = false
 				get_node("/root/Node2D/Camera/Camera2D").position = past_cam
 				get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2(past_cam - future_cam)
+				get_node("/root/Node2D/Level/Box").position += Vector2(past_cam - future_cam)
 				if konamied == false:
 					unixTime = 0
 				timeTravels = timeTravels + 1
@@ -157,6 +158,7 @@ func _process(_delta):
 				future = true
 				get_node("/root/Node2D/Camera/Camera2D").position = future_cam
 				get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2(future_cam - past_cam)
+				get_node("/root/Node2D/Level/Box").position += Vector2(future_cam - past_cam)
 				if konamied == false:
 					unixTime = 0
 				timeTravels = timeTravels + 1
@@ -183,4 +185,5 @@ func _process(_delta):
 	if Input.is_action_just_pressed("konamiPart3") and konamiedPart2 == true:
 		konamied = true
 		print("Cheat code successfully activated!!!!")
-
+	
+	
