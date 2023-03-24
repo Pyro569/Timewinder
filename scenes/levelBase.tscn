@@ -1,15 +1,18 @@
-[gd_scene load_steps=26 format=3 uid="uid://l1s5ipqtnioh"]
+[gd_scene load_steps=29 format=3 uid="uid://bjih1pjlrq2ox"]
 
 [ext_resource type="Texture2D" uid="uid://st24i1q554ea" path="res://assets/images/johnDifferentShading.png" id="2_nl206"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_2jam3"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
-[ext_resource type="Script" path="res://scripts/levelend.gd" id="6_oun64"]
+[ext_resource type="Script" path="res://scripts/duplicant.gd" id="5_nrsi8"]
+[ext_resource type="Script" path="res://scripts/duplicant/activatees/levelend.gd" id="5_pgmiy"]
+[ext_resource type="Script" path="res://scripts/duplicant/activator.gd" id="5_w6q2s"]
 [ext_resource type="Texture2D" uid="uid://cb08dmlq0awje" path="res://assets/level/box.png" id="6_tkpqt"]
 [ext_resource type="Texture2D" uid="uid://m835qdi8eteo" path="res://assets/level/magnet.png" id="7_p1wko"]
-[ext_resource type="Script" path="res://scripts/box.gd" id="8_p80gk"]
-[ext_resource type="Script" path="res://scripts/button.gd" id="9_a1xmy"]
+[ext_resource type="Script" path="res://scripts/duplicant/box.gd" id="7_tdg5a"]
+[ext_resource type="Script" path="res://scripts/duplicant/activators/button.gd" id="9_wdyd4"]
 [ext_resource type="Texture2D" uid="uid://dskon3uwelevy" path="res://assets/images/button.png" id="10_jal6k"]
+[ext_resource type="Script" path="res://scripts/duplicant/activatee.gd" id="11_b6nej"]
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fo6o"]
@@ -41,11 +44,11 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbuma"]
 size = Vector2(64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8yv0e"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ln4jd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_p1wko")
+"texture": ExtResource("10_jal6k")
 }],
 "loop": true,
 "name": &"default",
@@ -69,11 +72,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ln4jd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8yv0e"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_jal6k")
+"texture": ExtResource("7_p1wko")
 }],
 "loop": true,
 "name": &"default",
@@ -121,7 +124,7 @@ _data = {
 
 [node name="Player" type="Node" parent="."]
 
-[node name="CharacterBody2D" type="RigidBody2D" parent="Player"]
+[node name="RigidBody2D" type="RigidBody2D" parent="Player"]
 z_index = 5
 collision_layer = 3
 collision_mask = 3
@@ -133,14 +136,14 @@ freeze_mode = 1
 linear_damp_mode = 1
 script = ExtResource("3_vblnu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
 shape = SubResource("RectangleShape2D_rf85u")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/RigidBody2D"]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_4fkih")
 
-[node name="PointLight2D" type="PointLight2D" parent="Player/CharacterBody2D"]
+[node name="PointLight2D" type="PointLight2D" parent="Player/RigidBody2D"]
 position = Vector2(-2.86102e-06, -5.72205e-06)
 scale = Vector2(36.64, 29)
 energy = 0.1
@@ -159,51 +162,60 @@ volume_db = 14.991
 
 [node name="Level" type="Node" parent="."]
 
-[node name="MagnetLevelEnd" type="Area2D" parent="Level"]
-position = Vector2(-32, -96)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("6_oun64")
+[node name="Duplicants" type="Node" parent="Level"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/MagnetLevelEnd"]
+[node name="Button" type="Node2D" parent="Level/Duplicants"]
+position = Vector2(-32, -224)
+script = ExtResource("5_w6q2s")
+
+[node name="Area2D" type="Area2D" parent="Level/Duplicants/Button"]
+script = ExtResource("9_wdyd4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/Button/Area2D"]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_nbuma")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/MagnetLevelEnd"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Button/Area2D"]
 position = Vector2(32, 32)
-scale = Vector2(0.131417, 0.132231)
-sprite_frames = SubResource("SpriteFrames_8yv0e")
+sprite_frames = SubResource("SpriteFrames_ln4jd")
 
-[node name="Box" type="RigidBody2D" parent="Level"]
+[node name="Box" type="Node2D" parent="Level/Duplicants"]
 position = Vector2(-32, -160)
-collision_layer = 2
-collision_mask = 2
+script = ExtResource("5_nrsi8")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Level/Duplicants/Box"]
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_qhfa6")
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("8_p80gk")
+script = ExtResource("7_tdg5a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Box"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_ubs3o")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Box"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_4l5gp")
 
-[node name="Button" type="Area2D" parent="Level"]
-position = Vector2(-32, -224)
-script = ExtResource("9_a1xmy")
+[node name="MagnetLevelEnd" type="Node2D" parent="Level/Duplicants"]
+position = Vector2(-32, -96)
+script = ExtResource("11_b6nej")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Button"]
+[node name="Area2D" type="Area2D" parent="Level/Duplicants/MagnetLevelEnd"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("5_pgmiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/MagnetLevelEnd/Area2D"]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_nbuma")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Button"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/MagnetLevelEnd/Area2D"]
 position = Vector2(32, 32)
-sprite_frames = SubResource("SpriteFrames_ln4jd")
+scale = Vector2(0.131417, 0.132231)
+sprite_frames = SubResource("SpriteFrames_8yv0e")
 
 [node name="Effects" type="Node" parent="."]
 
@@ -247,5 +259,6 @@ fit_content = true
 autowrap_mode = 0
 tab_size = 9
 
-[connection signal="body_entered" from="Level/MagnetLevelEnd" to="Player/CharacterBody2D" method="_on_magnet_level_end_body_entered"]
-[connection signal="body_entered" from="Level/Button" to="Player/CharacterBody2D" method="_on_button_body_entered"]
+[connection signal="body_entered" from="Level/Duplicants/Button/Area2D" to="Level/Duplicants/Button/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Level/Duplicants/Button/Area2D" to="Level/Duplicants/Button/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Level/Duplicants/MagnetLevelEnd/Area2D" to="Level/Duplicants/MagnetLevelEnd/Area2D" method="_on_body_entered"]

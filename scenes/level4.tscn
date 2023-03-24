@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfhi78bamp256"]
 
-[ext_resource type="PackedScene" uid="uid://l1s5ipqtnioh" path="res://scenes/levelBase.tscn" id="1_oroao"]
+[ext_resource type="PackedScene" uid="uid://bjih1pjlrq2ox" path="res://scenes/levelBase.tscn" id="1_oroao"]
 [ext_resource type="TileSet" uid="uid://bpmf5c0jgra2j" path="res://assets/level/levelTilemap.tres" id="2_aevql"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="3_0l7gp"]
 

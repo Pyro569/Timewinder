@@ -26,9 +26,9 @@ var konamiedPart1
 var konamiedPart2
 
 var id_to_node = {
-	4: "Level/MagnetLevelEnd",
-	0: "Level/Box",
-	3: "Level/Button"
+	4: "MagnetLevelEnd",
+	0: "Box",
+	3: "Button"
 }
 
 var MAX_SIGNAL_LENGTH = 64
@@ -86,7 +86,7 @@ func _ready():
 	# setup tilemap
 	for id in id_to_node:
 		for cell in get_used_cells_by_id(0, id):
-			var parent_node = get_node("/root/Node2D/" + id_to_node[id])
+			var parent_node = get_node("/root/Node2D/Level/Duplicants/" + id_to_node[id])
 			var new_node = parent_node.duplicate()
 			parent_node.add_child(new_node)
 			new_node.global_position = cell * cell_size
@@ -102,8 +102,8 @@ func _ready():
 	for cell in get_used_cells_by_id(0, 6): # past cam
 		past_cam = cell * cell_size
 	for cell in get_used_cells_by_id(0, 5): # player start
-		var player_size = Vector2i(get_node("/root/Node2D/Player/CharacterBody2D/CollisionShape2D").get_shape().get_rect().size)
-		get_node("/root/Node2D/Player/CharacterBody2D").position = cell * cell_size + (cell_size - player_size) / 2
+		var player_size = Vector2i(get_node("/root/Node2D/Player/RigidBody2D/CollisionShape2D").get_shape().get_rect().size)
+		get_node("/root/Node2D/Player/RigidBody2D").position = cell * cell_size + (cell_size - player_size) / 2
 	# signals
 	Globals.signals = {}
 	for activator_id in activator_ids:
@@ -115,7 +115,8 @@ func _ready():
 				Globals.signals[activators[cell]] = null
 	print(Globals.signals)
 	for activator in Globals.signals:
-		Globals.signals[activator].enabled = false
+		print(Globals.signals[activator])
+		Globals.signals[activator].activators = 0
 		
 	add_child(timer)
 	timer.set_wait_time(1.0)
@@ -149,8 +150,8 @@ func _process(_delta):
 			if future:
 				future = false
 				get_node("/root/Node2D/Camera/Camera2D").position = past_cam
-				get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2(past_cam - future_cam)
-				get_node("/root/Node2D/Level/Box").position += Vector2(past_cam - future_cam)
+				get_node("/root/Node2D/Player/RigidBody2D").position += Vector2(past_cam - future_cam)
+				#get_node("/root/Node2D/Level/Box").position += Vector2(past_cam - future_cam)
 				if konamied == false:
 					unixTime = 0
 				timeTravels = timeTravels + 1
@@ -159,8 +160,8 @@ func _process(_delta):
 			else:
 				future = true
 				get_node("/root/Node2D/Camera/Camera2D").position = future_cam
-				get_node("/root/Node2D/Player/CharacterBody2D").position += Vector2(future_cam - past_cam)
-				get_node("/root/Node2D/Level/Box").position += Vector2(future_cam - past_cam)
+				get_node("/root/Node2D/Player/RigidBody2D").position += Vector2(future_cam - past_cam)
+				#get_node("/root/Node2D/Level/Box").position += Vector2(future_cam - past_cam)
 				if konamied == false:
 					unixTime = 0
 				timeTravels = timeTravels + 1
