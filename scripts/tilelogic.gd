@@ -105,6 +105,7 @@ func _ready():
 		var player_size = Vector2i(get_node("/root/Node2D/Player/CharacterBody2D/CollisionShape2D").get_shape().get_rect().size)
 		get_node("/root/Node2D/Player/CharacterBody2D").position = cell * cell_size + (cell_size - player_size) / 2
 	# signals
+	Globals.signals = {}
 	for activator_id in activator_ids:
 		for cell in get_used_cells_by_id(0, activator_id):
 			var activatee = resolve_signal(cell, 3)
@@ -112,8 +113,9 @@ func _ready():
 				Globals.signals[activators[cell]] = activatees[activatee]
 			else:
 				Globals.signals[activators[cell]] = null
-					
-	#print(Globals.signals)
+	print(Globals.signals)
+	for activator in Globals.signals:
+		Globals.signals[activator].enabled = false
 		
 	add_child(timer)
 	timer.set_wait_time(1.0)
