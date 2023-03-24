@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj8w6w1i67hbn"
-path="res://.godot/imported/pixil-frame-0.png-8232dc42a52c3d1b412e1586237fe1d1.ctex"
+uid="uid://dk26tn5gfkq4h"
+path="res://.godot/imported/NUKEpuddle9.png-a75069bc944397fee30e108aa3f34228.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pixil-frame-0.png"
-dest_files=["res://.godot/imported/pixil-frame-0.png-8232dc42a52c3d1b412e1586237fe1d1.ctex"]
+source_file="res://assets/images/NUKEpuddles/NUKEpuddle9.png"
+dest_files=["res://.godot/imported/NUKEpuddle9.png-a75069bc944397fee30e108aa3f34228.ctex"]
 
 [params]
 

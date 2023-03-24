@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj8w6w1i67hbn"
-path="res://.godot/imported/pixil-frame-0.png-8232dc42a52c3d1b412e1586237fe1d1.ctex"
+uid="uid://d4exvxxuspxfk"
+path="res://.godot/imported/pixil-frame-14.png-634938826485cc6e5e5aa648ab4e4b80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pixil-frame-0.png"
-dest_files=["res://.godot/imported/pixil-frame-0.png-8232dc42a52c3d1b412e1586237fe1d1.ctex"]
+source_file="res://assets/images/NorthSouthConveyerFuture/pixil-frame-14.png"
+dest_files=["res://.godot/imported/pixil-frame-14.png-634938826485cc6e5e5aa648ab4e4b80.ctex"]
 
 [params]
 
