@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq26feso1c3tl"
-path="res://.godot/imported/convS.P.8.png-c3e9742465347830e9ad461c92057972.ctex"
+path="res://.godot/imported/convS.P.8.png-73bdff1b354ff6ce57223cfc4ce01eda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/NorthSouthConveyerPast/convS.P.8.png"
-dest_files=["res://.godot/imported/convS.P.8.png-c3e9742465347830e9ad461c92057972.ctex"]
+source_file="res://assets/images/Terrain assets/NorthSouthConveyerPast/convS.P.8.png"
+dest_files=["res://.godot/imported/convS.P.8.png-73bdff1b354ff6ce57223cfc4ce01eda.ctex"]
 
 [params]
 
