@@ -190,8 +190,6 @@ shape = SubResource("RectangleShape2D_nbuma")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Button/Area2D"]
 position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_ln4jd")
-frame = 2
-frame_progress = 0.710086
 
 [node name="Box" type="Node2D" parent="Level/Duplicants"]
 position = Vector2(-32, -160)
