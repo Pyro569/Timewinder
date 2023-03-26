@@ -44,6 +44,9 @@ volume_db = 24.0
 [node name="Box" parent="Level/Duplicants" index="1"]
 script = ExtResource("5_sd72v")
 
+[node name="RigidBody2D" parent="Level/Duplicants/Box" index="0"]
+freeze_mode = 1
+
 [node name="TravelCounter" parent="Effects" index="2"]
 text = "[W][A][S][D] to move John-E-VI"
 

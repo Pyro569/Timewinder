@@ -162,6 +162,8 @@ func _ready():
 			print(dupe.travelvects)
 		if future:
 			dupe.future()
+			dupe.past()
+			dupe.future()
 		
 	add_child(timer)
 	timer.set_wait_time(1.0)
