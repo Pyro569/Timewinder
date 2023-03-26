@@ -16,8 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dkiadvqlyr60h" path="res://assets/images/Buttons future v1.3/FUTBUTTON.4.png" id="10_18vgl"]
 [ext_resource type="Script" path="res://scripts/duplicant/activatee.gd" id="11_b6nej"]
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
-[ext_resource type="Texture2D" uid="uid://btl8r0ksr1ho8" path="res://assets/images/Terrain assets/Magnets/MagnetFut.png" id="16_m20mm"]
-[ext_resource type="Texture2D" uid="uid://cflapg76qecne" path="res://assets/images/Terrain assets/Magnets/MagnetPast.png" id="17_tuo15"]
+[ext_resource type="Texture2D" uid="uid://ew54rbord8pi" path="res://assets/images/Terrain assets/Magnets/MagnetFut.png" id="16_m20mm"]
+[ext_resource type="Texture2D" uid="uid://ciopgwxxhmgp3" path="res://assets/images/Terrain assets/Magnets/MagnetPast.png" id="17_tuo15"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fo6o"]
 friction = 0.0
