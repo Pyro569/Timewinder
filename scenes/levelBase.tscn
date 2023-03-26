@@ -1,6 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://bjih1pjlrq2ox"]
+[gd_scene load_steps=29 format=3 uid="uid://exuial372qn7"]
 
-[ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_c2665"]
+[ext_resource type="Texture2D" uid="uid://st24i1q554ea" path="res://assets/images/johnDifferentShading.png" id="2_nl206"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_2jam3"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
@@ -8,13 +8,10 @@
 [ext_resource type="Script" path="res://scripts/duplicant/activatees/levelend.gd" id="5_pgmiy"]
 [ext_resource type="Script" path="res://scripts/duplicant/activator.gd" id="5_w6q2s"]
 [ext_resource type="Texture2D" uid="uid://cb08dmlq0awje" path="res://assets/level/box.png" id="6_tkpqt"]
-[ext_resource type="Texture2D" uid="uid://yveyimqcv1rd" path="res://assets/images/Buttons future v1.3/FUTBUTTON.1.png" id="7_dpkkr"]
 [ext_resource type="Texture2D" uid="uid://m835qdi8eteo" path="res://assets/level/magnet.png" id="7_p1wko"]
 [ext_resource type="Script" path="res://scripts/duplicant/rigiddupes/box.gd" id="9_03ebr"]
-[ext_resource type="Texture2D" uid="uid://de778lk5ygl0m" path="res://assets/images/Buttons future v1.3/FUTBUTTON.2.png" id="8_7ivdl"]
-[ext_resource type="Texture2D" uid="uid://c5tnugiad5m6y" path="res://assets/images/Buttons future v1.3/FUTBUTTON.3.png" id="9_rc51k"]
 [ext_resource type="Script" path="res://scripts/duplicant/activators/button.gd" id="9_wdyd4"]
-[ext_resource type="Texture2D" uid="uid://dkiadvqlyr60h" path="res://assets/images/Buttons future v1.3/FUTBUTTON.4.png" id="10_tyiyx"]
+[ext_resource type="Texture2D" uid="uid://dskon3uwelevy" path="res://assets/images/button.png" id="10_jal6k"]
 [ext_resource type="Script" path="res://scripts/duplicant/activatee.gd" id="11_b6nej"]
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
 
@@ -29,7 +26,7 @@ size = Vector2(42, 46)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_c2665")
+"texture": ExtResource("2_nl206")
 }],
 "loop": true,
 "name": &"default",
@@ -51,16 +48,7 @@ size = Vector2(64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_dpkkr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_7ivdl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_rc51k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_tyiyx")
+"texture": ExtResource("10_jal6k")
 }],
 "loop": true,
 "name": &"default",

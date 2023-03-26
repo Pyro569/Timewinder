@@ -129,6 +129,7 @@ func _ready():
 				activatees[cell] = new_node
 	# required objects
 	for cell in get_used_cells_by_id(1, 7): # future cam
+		print(get_node("/root/Node2D"))
 		get_node("/root/Node2D/Camera/Camera2D").global_position = cell * cell_size
 		future_cam = cell * cell_size
 	for cell in get_used_cells_by_id(1, 6): # past cam
