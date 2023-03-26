@@ -120,7 +120,7 @@ func _ready():
 			var parent_node = get_node("/root/Node2D/Level/Duplicants/" + id_to_node[id])
 			var new_node = parent_node.duplicate()
 			duplicants.append(new_node)
-			parent_node.add_child(new_node)
+			parent_node.add_sibling(new_node)
 			new_node.init_pos = cell
 			new_node.global_position = cell * cell_size
 			new_node.scale /= parent_node.scale

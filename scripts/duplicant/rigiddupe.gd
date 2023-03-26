@@ -1,19 +1,17 @@
 extends "res://scripts/duplicant.gd"
 
 func future():
-	print(get_node("RigidBody2D").position)
-	print(position)
-	get_node("RigidBody2D").travelframes = 5
+	var new_delta = Vector2.ZERO
 	for vect in travelvects:
-		position += vect
-	position -= Globals.cam_delta
-	print(position)
+		new_delta += vect
+	new_delta -= Globals.cam_delta
+	print(new_delta)
+	get_node("RigidBody2D").next_pos = new_delta
 	
 func past():
-	print(get_node("RigidBody2D").position)
-	print(position)
-	get_node("RigidBody2D").travelframes = 5
+	var new_delta = Vector2.ZERO
 	for vect in travelvects:
-		position -= vect
-	position += Globals.cam_delta
-	print(position)
+		new_delta -= vect
+	new_delta += Globals.cam_delta
+	print(new_delta)
+	get_node("RigidBody2D").next_pos = new_delta
