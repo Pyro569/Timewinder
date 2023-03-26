@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://exuial372qn7"]
+[gd_scene load_steps=35 format=3 uid="uid://exuial372qn7"]
 
 [ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_serme"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
 [ext_resource type="Script" path="res://scripts/duplicant/activatees/levelend.gd" id="5_pgmiy"]
 [ext_resource type="Script" path="res://scripts/duplicant/activator.gd" id="5_w6q2s"]
-[ext_resource type="Texture2D" uid="uid://cb08dmlq0awje" path="res://assets/level/box.png" id="6_tkpqt"]
 [ext_resource type="Texture2D" uid="uid://yveyimqcv1rd" path="res://assets/images/Buttons future v1.3/FUTBUTTON.1.png" id="7_p5gyj"]
 [ext_resource type="Texture2D" uid="uid://de778lk5ygl0m" path="res://assets/images/Buttons future v1.3/FUTBUTTON.2.png" id="8_w3r0p"]
 [ext_resource type="Texture2D" uid="uid://c5tnugiad5m6y" path="res://assets/images/Buttons future v1.3/FUTBUTTON.3.png" id="9_1q7ff"]
@@ -16,6 +15,9 @@
 [ext_resource type="Script" path="res://scripts/duplicant/activatee.gd" id="11_b6nej"]
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
 [ext_resource type="Script" path="res://scripts/duplicant/rigiddupe.gd" id="11_wmxf4"]
+[ext_resource type="Texture2D" uid="uid://bsoj2v4e7vsrp" path="res://assets/level/boxPast.png" id="13_b71kc"]
+[ext_resource type="Texture2D" uid="uid://dailqp55lxaxv" path="res://assets/level/boxFuture.png" id="14_osyvd"]
+[ext_resource type="Script" path="res://scripts/switchFuturePastFrame.gd" id="15_cg0me"]
 [ext_resource type="Texture2D" uid="uid://ew54rbord8pi" path="res://assets/images/Terrain assets/Magnets/MagnetFut.png" id="16_m20mm"]
 [ext_resource type="Texture2D" uid="uid://ciopgwxxhmgp3" path="res://assets/images/Terrain assets/Magnets/MagnetPast.png" id="17_tuo15"]
 
@@ -78,7 +80,10 @@ size = Vector2(64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_tkpqt")
+"texture": ExtResource("13_b71kc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_osyvd")
 }],
 "loop": true,
 "name": &"default",
@@ -89,10 +94,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_m20mm")
+"texture": ExtResource("17_tuo15")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_tuo15")
+"texture": ExtResource("16_m20mm")
 }],
 "loop": true,
 "name": &"default",
@@ -220,6 +225,7 @@ shape = SubResource("RectangleShape2D_fxcnl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_c6057")
+script = ExtResource("15_cg0me")
 
 [node name="MagnetLevelEnd" type="Node2D" parent="Level/Duplicants"]
 position = Vector2(-32, -96)
@@ -238,6 +244,7 @@ shape = SubResource("RectangleShape2D_xyaea")
 position = Vector2(32, 32)
 scale = Vector2(1.048, 1.056)
 sprite_frames = SubResource("SpriteFrames_jq6sy")
+script = ExtResource("15_cg0me")
 
 [node name="Effects" type="Node" parent="."]
 
