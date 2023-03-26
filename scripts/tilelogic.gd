@@ -7,6 +7,10 @@ var future = true
 var time_travelling = false
 
 var timer = Timer.new()
+
+# Time since scene has been loaded
+var gameStartTime = Time.get_ticks_msec()
+
 var unixTime = 3
 
 var timeTravels = 0

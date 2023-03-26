@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cqjngih1urqoc"]
 
-[ext_resource type="PackedScene" uid="uid://l1s5ipqtnioh" path="res://scenes/levelBase.tscn" id="1_ht1pf"]
+[ext_resource type="PackedScene" uid="uid://bjih1pjlrq2ox" path="res://scenes/levelBase.tscn" id="1_ht1pf"]
 [ext_resource type="Script" path="res://scripts/titlescreen.gd" id="2_34dsw"]
 [ext_resource type="TileSet" uid="uid://bpmf5c0jgra2j" path="res://assets/level/levelTilemap.tres" id="2_f3f57"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="3_14c0n"]
@@ -46,12 +46,6 @@ offset_right = 3085.0
 offset_bottom = -376.0
 texture = ExtResource("6_mcl1h")
 
-[node name="TextureRect" parent="Effects" index="1"]
-offset_left = 22.0
-offset_top = 11.0
-offset_right = 2670.0
-offset_bottom = 1795.0
-
 [node name="RichTextLabel" type="RichTextLabel" parent="Effects" index="2"]
 modulate = Color(0.980392, 0, 0.235294, 1)
 offset_left = 1290.0
@@ -95,9 +89,6 @@ offset_bottom = 50.9005
 scale = Vector2(1, 0.774758)
 text = "Start"
 script = ExtResource("4_jpsaw")
-
-[node name="Fadeout" parent="Effects" index="4"]
-color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="Effects/RichTextLabel/Button" to="Effects/RichTextLabel/Button" method="_on_pressed"]
 [connection signal="pressed" from="Effects/RichTextLabel2/Button" to="Effects/RichTextLabel2/Button" method="_on_pressed"]
