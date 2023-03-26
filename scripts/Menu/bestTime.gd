@@ -5,8 +5,3 @@ extends RichTextLabel
 func _ready():
 	text = "Best Time: " + str(Globals.thisLevels.getCurrentLevel().timeToComplete) + " sec"
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

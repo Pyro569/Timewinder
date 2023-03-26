@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dxcjqv74ggexm"]
 
-[ext_resource type="PackedScene" uid="uid://cl3ycgkjcty2h" path="res://scenes/levelBase.tscn" id="1_ck2bc"]
+[ext_resource type="PackedScene" uid="uid://c26fjwy8c5m6k" path="res://scenes/levelBase.tscn" id="1_ck2bc"]
 [ext_resource type="TileSet" uid="uid://bpmf5c0jgra2j" path="res://assets/level/levelTilemap.tres" id="2_w2pyi"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_lsh8t"]
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="6_xw7jy"]
