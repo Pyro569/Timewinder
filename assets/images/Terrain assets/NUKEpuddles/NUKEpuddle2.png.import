@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmqt42hk8apil"
-path="res://.godot/imported/NUKEpuddle2.png-7e9640e39de99adbb453b906596d5716.ctex"
+path="res://.godot/imported/NUKEpuddle2.png-5d3ccc97120d41f11179850c5e0eb84c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/NUKEpuddles/NUKEpuddle2.png"
-dest_files=["res://.godot/imported/NUKEpuddle2.png-7e9640e39de99adbb453b906596d5716.ctex"]
+source_file="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle2.png"
+dest_files=["res://.godot/imported/NUKEpuddle2.png-5d3ccc97120d41f11179850c5e0eb84c.ctex"]
 
 [params]
 

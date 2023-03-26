@@ -1,10 +1,12 @@
 extends TileMap
 
+signal to_future
+signal to_past
+
 var cell_size = tile_set.tile_size
 var future_cam
 var past_cam
 var future = true
-var time_travelling = false
 
 var timer = Timer.new()
 var unixTime = 3
@@ -19,8 +21,6 @@ var screensize
 var travelCounterNode
 var travelCounterNode2
 
-var pressed_time_travel_last_frame = false
-
 var konamied = false
 var konamiedPart1
 var konamiedPart2
@@ -33,16 +33,20 @@ var id_to_node = {
 
 var MAX_SIGNAL_LENGTH = 64
 var signal_arrows = [15, 14, 12, 13] # never eat soggy waffles
+var tvect_arrows = [18, 19, 20, 21]
+var tvect_endpoint_id = 22
+var tvect_endpoints = []
 var activator_ids = [3]
 var activatee_ids = [4]
 var activators = {}
 var activatees = {}
+var duplicants = []
 
 func get_random_teleport_sound():
 	# This is here incase we need more sfx for teleporting
 	return play_yes_travel_sounds[0]
 
-func resolve_signal(activator: Vector2i, direction: int, past_arrows = []):
+func resolve_signal(activator: Vector2i, direction: int, past_arrows = [], tvect = false):
 	#print(activator, direction, past_arrows)
 	past_arrows.append(activator)
 	var direction_vect
@@ -62,16 +66,38 @@ func resolve_signal(activator: Vector2i, direction: int, past_arrows = []):
 			direction_expression = func(a, b): return a.x < b.x
 	var signal_end = activator + direction_vect
 	var current_cell = activator
+	var arrows
+	var layer
+	var endpoints
+	if tvect:
+		arrows = tvect_arrows
+		layer = 0
+		endpoints = tvect_endpoints
+	else:
+		arrows = signal_arrows
+		layer = 1
+		endpoints = activatees
 	#print(signal_end, current_cell, direction_expression.call(signal_end, current_cell), signal_end.x < current_cell.x)
 	while direction_expression.call(signal_end, current_cell):
 		current_cell += direction_vect / MAX_SIGNAL_LENGTH
 		#print(current_cell)
-		if activatees.has(current_cell):
-			return current_cell
-		elif signal_arrows.has(get_cell_source_id(0, current_cell)):
-			var arrow_direction = signal_arrows.find(get_cell_source_id(0, current_cell))
+		if endpoints.has(current_cell):
+			if tvect:
+				var tvects = []
+				for i in range(past_arrows.size()):
+					if i == past_arrows.size() - 1:
+						tvects.append(Vector2(current_cell - past_arrows[i]) * Vector2(tile_set.tile_size))
+						print(tvects, (current_cell - past_arrows[i]), tile_set.tile_size)
+						return tvects
+					else:
+						tvects.append(Vector2(past_arrows[i + 1] - past_arrows[i]) * Vector2(tile_set.tile_size))
+						print(tvects, (past_arrows[i + 1] - past_arrows[i]), tile_set.tile_size)
+			else:
+				return current_cell
+		elif arrows.has(get_cell_source_id(layer, current_cell)):
+			var arrow_direction = arrows.find(get_cell_source_id(layer, current_cell))
 			if !past_arrows.has(current_cell): # prevent infinite loop
-				return resolve_signal(current_cell, arrow_direction, past_arrows) # recursively go through every arrow
+				return resolve_signal(current_cell, arrow_direction, past_arrows, tvect) # recursively go through every arrow
 			else:
 				#print("test")
 				break
@@ -85,10 +111,12 @@ func _ready():
 	travelCounterNode2.text = "Travels: 0"
 	# setup tilemap
 	for id in id_to_node:
-		for cell in get_used_cells_by_id(0, id):
+		for cell in get_used_cells_by_id(1, id):
 			var parent_node = get_node("/root/Node2D/Level/Duplicants/" + id_to_node[id])
 			var new_node = parent_node.duplicate()
+			duplicants.append(new_node)
 			parent_node.add_child(new_node)
+			new_node.init_pos = cell
 			new_node.global_position = cell * cell_size
 			new_node.scale /= parent_node.scale
 			if activator_ids.has(id):
@@ -96,18 +124,19 @@ func _ready():
 			if activatee_ids.has(id):
 				activatees[cell] = new_node
 	# required objects
-	for cell in get_used_cells_by_id(0, 7): # future cam
+	for cell in get_used_cells_by_id(1, 7): # future cam
 		get_node("/root/Node2D/Camera/Camera2D").global_position = cell * cell_size
 		future_cam = cell * cell_size
-	for cell in get_used_cells_by_id(0, 6): # past cam
+	for cell in get_used_cells_by_id(1, 6): # past cam
 		past_cam = cell * cell_size
-	for cell in get_used_cells_by_id(0, 5): # player start
+	Globals.cam_delta = Vector2(past_cam - future_cam)
+	for cell in get_used_cells_by_id(1, 5): # player start
 		var player_size = Vector2i(get_node("/root/Node2D/Player/RigidBody2D/CollisionShape2D").get_shape().get_rect().size)
 		get_node("/root/Node2D/Player/RigidBody2D").position = cell * cell_size + (cell_size - player_size) / 2
 	# signals
 	Globals.signals = {}
 	for activator_id in activator_ids:
-		for cell in get_used_cells_by_id(0, activator_id):
+		for cell in get_used_cells_by_id(1, activator_id):
 			var activatee = resolve_signal(cell, 3)
 			if activatee != null:
 				Globals.signals[activators[cell]] = activatees[activatee]
@@ -115,8 +144,19 @@ func _ready():
 				Globals.signals[activators[cell]] = null
 	print(Globals.signals)
 	for activator in Globals.signals:
-		print(Globals.signals[activator])
-		Globals.signals[activator].activators = 0
+		if Globals.signals[activator] != null:
+			print(Globals.signals[activator])
+			Globals.signals[activator].activators = 0
+	# time travel initial vectors
+	for cell in get_used_cells_by_id(0, tvect_endpoint_id):
+		tvect_endpoints.append(cell)
+	for dupe in duplicants:
+		var id = get_cell_source_id(0, dupe.init_pos)
+		if tvect_arrows.has(id):
+			dupe.travelvects = resolve_signal(dupe.init_pos, tvect_arrows.find(id), [], true)
+			print(dupe.travelvects)
+		if future:
+			dupe.future()
 		
 	add_child(timer)
 	timer.set_wait_time(1.0)
@@ -138,43 +178,37 @@ func _process(_delta):
 	else:
 		travelCounterNode.text = "Travels: " + str(timeTravels)
 		travelCounterNode2.text = "Travels: " + str(timeTravels)
-	if Input.is_action_pressed("timeTravel") and unixTime >= 2:
-		if !time_travelling:
-			# You don't need to check if the time travel button is pressed for the first frame since
-			# it will automatically go to the else if unix timeis less than 2
-			# so this just plays the sfx
-			get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").stream = get_random_teleport_sound()
-			get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").play()
-			
-			time_travelling = true
-			if future:
-				future = false
-				get_node("/root/Node2D/Camera/Camera2D").position = past_cam
-				get_node("/root/Node2D/Player/RigidBody2D").position += Vector2(past_cam - future_cam)
-				#get_node("/root/Node2D/Level/Box").position += Vector2(past_cam - future_cam)
-				if konamied == false:
-					unixTime = 0
-				timeTravels = timeTravels + 1
-				travelCounterNode.text = "Travels: " + str(timeTravels)
-				travelCounterNode2.text = "Travels: " + str(timeTravels)
-			else:
-				future = true
-				get_node("/root/Node2D/Camera/Camera2D").position = future_cam
-				get_node("/root/Node2D/Player/RigidBody2D").position += Vector2(future_cam - past_cam)
-				#get_node("/root/Node2D/Level/Box").position += Vector2(future_cam - past_cam)
-				if konamied == false:
-					unixTime = 0
-				timeTravels = timeTravels + 1
-				travelCounterNode.text = "Travels: " + str(timeTravels)
-				travelCounterNode2.text = "Travels: " + str(timeTravels)
-	elif unixTime < 2 and Input.is_action_pressed("timeTravel") and !pressed_time_travel_last_frame:
+	if Input.is_action_just_pressed("timeTravel") and unixTime >= 2:
+		get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").stream = get_random_teleport_sound()
+		get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").play()
+		if future:
+			future = false
+			get_node("/root/Node2D/Camera/Camera2D").position = past_cam
+			get_node("/root/Node2D/Player/RigidBody2D").position += Globals.cam_delta
+			if konamied == false:
+				unixTime = 0
+			timeTravels = timeTravels + 1
+			travelCounterNode.text = "Travels: " + str(timeTravels)
+			travelCounterNode2.text = "Travels: " + str(timeTravels)
+			for dupe in duplicants:
+				dupe.past()
+			to_past.emit()
+		else:
+			future = true
+			get_node("/root/Node2D/Camera/Camera2D").position = future_cam
+			get_node("/root/Node2D/Player/RigidBody2D").position -= Globals.cam_delta
+			if konamied == false:
+				unixTime = 0
+			timeTravels = timeTravels + 1
+			travelCounterNode.text = "Travels: " + str(timeTravels)
+			travelCounterNode2.text = "Travels: " + str(timeTravels)
+			for dupe in duplicants:
+				dupe.future()
+			to_future.emit()
+	elif unixTime < 2 and Input.is_action_just_pressed("timeTravel"):
 		# This executes the sound as soon and only once when the designetated key for time trabeling is pressed
 		get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").stream = playnotravelsound
 		get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").play()
-		time_travelling = false
-	else:
-		time_travelling = false
-	pressed_time_travel_last_frame = Input.is_action_pressed("timeTravel")
 	
 	if unixTime >= 3:
 		unixTime = 3

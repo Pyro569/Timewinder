@@ -27,3 +27,7 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("reload"):
 		get_tree().reload_current_scene()
 	#print("\n" + str(get_colliding_bodies()) + "\n")
+
+
+func _on_tile_map_to_future():
+	pass # Replace with function body.

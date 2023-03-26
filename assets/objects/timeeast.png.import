@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://det7o8vjnxcq5"
-path="res://.godot/imported/convN.P.7.png-caa9031fa96efeca572344fd91e7972e.ctex"
+uid="uid://dxfdnp3g646yt"
+path="res://.godot/imported/timeeast.png-9f02c9ad5368eab05cae846506579fb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.7.png"
-dest_files=["res://.godot/imported/convN.P.7.png-caa9031fa96efeca572344fd91e7972e.ctex"]
+source_file="res://assets/objects/timeeast.png"
+dest_files=["res://.godot/imported/timeeast.png-9f02c9ad5368eab05cae846506579fb4.ctex"]
 
 [params]
 

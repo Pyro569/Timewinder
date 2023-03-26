@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://det7o8vjnxcq5"
-path="res://.godot/imported/convN.P.7.png-caa9031fa96efeca572344fd91e7972e.ctex"
+uid="uid://cflapg76qecne"
+path="res://.godot/imported/MagnetPast.png-dc8f3ce06d5042de8f037f3490150a57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.7.png"
-dest_files=["res://.godot/imported/convN.P.7.png-caa9031fa96efeca572344fd91e7972e.ctex"]
+source_file="res://assets/images/Terrain assets/Magnets/MagnetPast.png"
+dest_files=["res://.godot/imported/MagnetPast.png-dc8f3ce06d5042de8f037f3490150a57.ctex"]
 
 [params]
 

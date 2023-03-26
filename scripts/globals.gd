@@ -4,3 +4,4 @@ extends Node
 
 var muted = true
 var signals = {}
+var cam_delta: Vector2

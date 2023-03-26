@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bjih1pjlrq2ox"]
+[gd_scene load_steps=29 format=3 uid="uid://exuial372qn7"]
 
 [ext_resource type="Texture2D" uid="uid://st24i1q554ea" path="res://assets/images/johnDifferentShading.png" id="2_nl206"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scripts/duplicant/activator.gd" id="5_w6q2s"]
 [ext_resource type="Texture2D" uid="uid://cb08dmlq0awje" path="res://assets/level/box.png" id="6_tkpqt"]
 [ext_resource type="Texture2D" uid="uid://m835qdi8eteo" path="res://assets/level/magnet.png" id="7_p1wko"]
-[ext_resource type="Script" path="res://scripts/duplicant/box.gd" id="7_tdg5a"]
+[ext_resource type="Script" path="res://scripts/duplicant/rigiddupes/box.gd" id="9_03ebr"]
 [ext_resource type="Script" path="res://scripts/duplicant/activators/button.gd" id="9_wdyd4"]
 [ext_resource type="Texture2D" uid="uid://dskon3uwelevy" path="res://assets/images/button.png" id="10_jal6k"]
 [ext_resource type="Script" path="res://scripts/duplicant/activatee.gd" id="11_b6nej"]
@@ -162,6 +162,12 @@ volume_db = 14.991
 
 [node name="Level" type="Node" parent="."]
 
+[node name="Objects" type="Node" parent="Level"]
+
+[node name="Future" type="Node" parent="Level"]
+
+[node name="Past" type="Node" parent="Level"]
+
 [node name="Duplicants" type="Node" parent="Level"]
 
 [node name="Button" type="Node2D" parent="Level/Duplicants"]
@@ -188,7 +194,7 @@ mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_qhfa6")
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("7_tdg5a")
+script = ExtResource("9_03ebr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
