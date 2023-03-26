@@ -14,6 +14,7 @@ var timer = Timer.new()
 var gameStartTime = Time.get_ticks_msec()
 
 var unixTime = 3
+var moved = false
 
 var timeTravels = 0
 
@@ -180,8 +181,13 @@ func _process(_delta):
 		travelCounterNode.visible = false
 		travelCounterNode2.visible = false
 	if get_node_or_null("/root/Node2D/Effects/Level1"):
-		travelCounterNode.text = "[W][A][S][D] to move John-E-VI"
-		travelCounterNode2.text = "[W][A][S][D] to move John-E-VI"
+		if moved == false:
+			travelCounterNode.text = "[W][A][S][D] to move John-E-VI"
+			travelCounterNode2.text = "[W][A][S][D] to move John-E-VI"
+			moved = true
+		if Input.is_action_pressed("moveLeft") or Input.is_action_pressed("moveRight") or Input.is_action_pressed("moveUp") or Input.is_action_pressed("moveDown"):
+			travelCounterNode.text = "Reach the magnet to beat the level"
+			travelCounterNode2.text = "Reach the magnet to beat the level"
 	else:
 		travelCounterNode.text = "Travels: " + str(timeTravels)
 		travelCounterNode2.text = "Travels: " + str(timeTravels)
