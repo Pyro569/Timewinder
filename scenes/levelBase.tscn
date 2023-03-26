@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_2jam3"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
-[ext_resource type="Script" path="res://scripts/duplicant.gd" id="5_nrsi8"]
 [ext_resource type="Script" path="res://scripts/duplicant/activatees/levelend.gd" id="5_pgmiy"]
 [ext_resource type="Script" path="res://scripts/duplicant/activator.gd" id="5_w6q2s"]
 [ext_resource type="Texture2D" uid="uid://cb08dmlq0awje" path="res://assets/level/box.png" id="6_tkpqt"]
@@ -16,8 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://dkiadvqlyr60h" path="res://assets/images/Buttons future v1.3/FUTBUTTON.4.png" id="10_18vgl"]
 [ext_resource type="Script" path="res://scripts/duplicant/activatee.gd" id="11_b6nej"]
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
-[ext_resource type="Texture2D" uid="uid://btl8r0ksr1ho8" path="res://assets/images/Terrain assets/Magnets/MagnetFut.png" id="16_m20mm"]
-[ext_resource type="Texture2D" uid="uid://cflapg76qecne" path="res://assets/images/Terrain assets/Magnets/MagnetPast.png" id="17_tuo15"]
+[ext_resource type="Script" path="res://scripts/duplicant/rigiddupe.gd" id="11_wmxf4"]
+[ext_resource type="Texture2D" uid="uid://ew54rbord8pi" path="res://assets/images/Terrain assets/Magnets/MagnetFut.png" id="16_m20mm"]
+[ext_resource type="Texture2D" uid="uid://ciopgwxxhmgp3" path="res://assets/images/Terrain assets/Magnets/MagnetPast.png" id="17_tuo15"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fo6o"]
 friction = 0.0
@@ -45,10 +45,10 @@ gradient = SubResource("Gradient_arei6")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbuma"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyaea"]
 size = Vector2(50, 53)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ln4jd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktdej"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -68,13 +68,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qhfa6"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_avrps"]
 friction = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubs3o"]
-size = Vector2(48, 48)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxcnl"]
+size = Vector2(64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4l5gp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6057"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -85,7 +85,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8yv0e"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_jq6sy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -195,31 +195,31 @@ script = ExtResource("9_wdyd4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/Button/Area2D"]
 position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_nbuma")
+shape = SubResource("RectangleShape2D_xyaea")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Button/Area2D"]
 position = Vector2(32, 32)
-sprite_frames = SubResource("SpriteFrames_ln4jd")
+sprite_frames = SubResource("SpriteFrames_ktdej")
 
 [node name="Box" type="Node2D" parent="Level/Duplicants"]
 position = Vector2(-32, -160)
-script = ExtResource("5_nrsi8")
+script = ExtResource("11_wmxf4")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Level/Duplicants/Box"]
 mass = 0.01
-physics_material_override = SubResource("PhysicsMaterial_qhfa6")
+physics_material_override = SubResource("PhysicsMaterial_avrps")
 gravity_scale = 0.0
 lock_rotation = true
+freeze_mode = 1
 script = ExtResource("9_03ebr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_ubs3o")
+shape = SubResource("RectangleShape2D_fxcnl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
-scale = Vector2(0.75, 0.75)
-sprite_frames = SubResource("SpriteFrames_4l5gp")
+sprite_frames = SubResource("SpriteFrames_c6057")
 
 [node name="MagnetLevelEnd" type="Node2D" parent="Level/Duplicants"]
 position = Vector2(-32, -96)
@@ -232,12 +232,12 @@ script = ExtResource("5_pgmiy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/MagnetLevelEnd/Area2D"]
 position = Vector2(32, 22.5)
-shape = SubResource("RectangleShape2D_nbuma")
+shape = SubResource("RectangleShape2D_xyaea")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/MagnetLevelEnd/Area2D"]
 position = Vector2(32, 32)
 scale = Vector2(1.048, 1.056)
-sprite_frames = SubResource("SpriteFrames_8yv0e")
+sprite_frames = SubResource("SpriteFrames_jq6sy")
 
 [node name="Effects" type="Node" parent="."]
 
@@ -281,6 +281,6 @@ fit_content = true
 autowrap_mode = 0
 tab_size = 9
 
-[connection signal="body_entered" from="Level/Duplicants/Button/Area2D" to="Level/Duplicants/Button/Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Level/Duplicants/Button/Area2D" to="Level/Duplicants/Button/Area2D" method="_on_body_exited"]
-[connection signal="body_entered" from="Level/Duplicants/MagnetLevelEnd/Area2D" to="Level/Duplicants/MagnetLevelEnd/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Duplicants/Button/Area2D" to="Level/Duplicants/Button/Area2D" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="Level/Duplicants/Button/Area2D" to="Level/Duplicants/Button/Area2D" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="Level/Duplicants/MagnetLevelEnd/Area2D" to="Level/Duplicants/MagnetLevelEnd/Area2D" method="_on_body_entered" flags=18]
