@@ -33,7 +33,11 @@ var konamiedPart2
 var id_to_node = {
 	4: "MagnetLevelEnd",
 	0: "Box",
-	3: "Button"
+	3: "Button",
+	8: "ConveyerBelts/ConvayerBeltDown",
+	9: "ConveyerBelts/ConvayerBeltLeft",
+	10: "ConveyerBelts/ConvayerBeltRight",
+	11: "ConveyerBelts/ConvayerBeltUp",
 }
 
 var MAX_SIGNAL_LENGTH = 64

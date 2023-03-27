@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://exuial372qn7"]
+[gd_scene load_steps=49 format=3 uid="uid://cwfiobu0f8y3j"]
 
 [ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_serme"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
@@ -16,10 +16,23 @@
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
 [ext_resource type="Script" path="res://scripts/duplicant/rigiddupe.gd" id="11_wmxf4"]
 [ext_resource type="Texture2D" uid="uid://bsoj2v4e7vsrp" path="res://assets/level/boxPast.png" id="13_b71kc"]
+[ext_resource type="Texture2D" uid="uid://01pfglg1chyr" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.1.png" id="13_iho7w"]
 [ext_resource type="Texture2D" uid="uid://dailqp55lxaxv" path="res://assets/level/boxFuture.png" id="14_osyvd"]
+[ext_resource type="Texture2D" uid="uid://bd4qju8g35q8t" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.2.png" id="14_v0cb8"]
 [ext_resource type="Script" path="res://scripts/switchFuturePastFrame.gd" id="15_cg0me"]
+[ext_resource type="Texture2D" uid="uid://c6ndm4xee6diy" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.3.png" id="15_fh1l5"]
+[ext_resource type="Script" path="res://scripts/duplicant/Conveyer belt logic/conveyerUp.gd" id="16_42ryo"]
 [ext_resource type="Texture2D" uid="uid://ew54rbord8pi" path="res://assets/images/Terrain assets/Magnets/MagnetFut.png" id="16_m20mm"]
+[ext_resource type="Texture2D" uid="uid://c2301siipvwt6" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.4.png" id="16_o7i7g"]
+[ext_resource type="Shape2D" uid="uid://b21pge0f65fhg" path="res://assets/objects/convayerCollision.tres" id="17_l3i86"]
+[ext_resource type="Texture2D" uid="uid://bfjvu5gf8c8x7" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.5.png" id="17_rqd67"]
 [ext_resource type="Texture2D" uid="uid://ciopgwxxhmgp3" path="res://assets/images/Terrain assets/Magnets/MagnetPast.png" id="17_tuo15"]
+[ext_resource type="Texture2D" uid="uid://bfwqwmntw2e2" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.6.png" id="18_0q7ks"]
+[ext_resource type="Texture2D" uid="uid://det7o8vjnxcq5" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.7.png" id="19_msleo"]
+[ext_resource type="Texture2D" uid="uid://cygo3spgii6xh" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.8.png" id="20_ar6h3"]
+[ext_resource type="Script" path="res://scripts/duplicant/Conveyer belt logic/conveyerDown.gd" id="25_wcqi0"]
+[ext_resource type="Script" path="res://scripts/duplicant/Conveyer belt logic/conveyerLeft.gd" id="26_cfy4s"]
+[ext_resource type="Script" path="res://scripts/duplicant/Conveyer belt logic/conveyerRight.gd" id="27_frame"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fo6o"]
 friction = 0.0
@@ -88,6 +101,38 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ggaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_iho7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_v0cb8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fh1l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_o7i7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rqd67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0q7ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_msleo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ar6h3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jq6sy"]
@@ -227,8 +272,87 @@ position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_c6057")
 script = ExtResource("15_cg0me")
 
+[node name="ConveyerBelts" type="Node" parent="Level/Duplicants"]
+
+[node name="ConvayerBeltUp" type="Node2D" parent="Level/Duplicants/ConveyerBelts"]
+position = Vector2(112, -208)
+rotation = -3.14159
+
+[node name="Area2D" type="Area2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltUp"]
+position = Vector2(-7.62939e-06, -62)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("16_42ryo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltUp/Area2D"]
+position = Vector2(31.9999, 29.9998)
+shape = ExtResource("17_l3i86")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltUp/Area2D"]
+z_index = -1
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_4ggaw")
+autoplay = "default"
+
+[node name="ConvayerBeltDown" type="Node2D" parent="Level/Duplicants/ConveyerBelts"]
+position = Vector2(232, -192)
+
+[node name="Area2D" type="Area2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltDown"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("25_wcqi0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltDown/Area2D"]
+position = Vector2(32, 32)
+shape = ExtResource("17_l3i86")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltDown/Area2D"]
+z_index = -1
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_4ggaw")
+autoplay = "default"
+
+[node name="ConvayerBeltLeft" type="Node2D" parent="Level/Duplicants/ConveyerBelts"]
+position = Vector2(128, -160)
+rotation = -4.71238
+
+[node name="Area2D" type="Area2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltLeft"]
+position = Vector2(-7.62939e-06, -62)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("26_cfy4s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltLeft/Area2D"]
+position = Vector2(32, 32)
+shape = ExtResource("17_l3i86")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltLeft/Area2D"]
+z_index = -1
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_4ggaw")
+autoplay = "default"
+
+[node name="ConvayerBeltRight" type="Node2D" parent="Level/Duplicants/ConveyerBelts"]
+position = Vector2(168, -240)
+rotation = 4.71238
+
+[node name="Area2D" type="Area2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltRight"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("27_frame")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D"]
+position = Vector2(31.9999, 32.0002)
+shape = ExtResource("17_l3i86")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D"]
+z_index = -1
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_4ggaw")
+autoplay = "default"
+
 [node name="MagnetLevelEnd" type="Node2D" parent="Level/Duplicants"]
-position = Vector2(-32, -96)
+position = Vector2(-136, -96)
 script = ExtResource("11_b6nej")
 
 [node name="Area2D" type="Area2D" parent="Level/Duplicants/MagnetLevelEnd"]
@@ -290,4 +414,12 @@ tab_size = 9
 
 [connection signal="body_entered" from="Level/Duplicants/Button/Area2D" to="Level/Duplicants/Button/Area2D" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="Level/Duplicants/Button/Area2D" to="Level/Duplicants/Button/Area2D" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="Level/Duplicants/ConveyerBelts/ConvayerBeltUp/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltUp/Area2D" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="Level/Duplicants/ConveyerBelts/ConvayerBeltUp/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltUp/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Level/Duplicants/ConveyerBelts/ConvayerBeltDown/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltDown/Area2D" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="Level/Duplicants/ConveyerBelts/ConvayerBeltDown/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltDown/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Level/Duplicants/ConveyerBelts/ConvayerBeltLeft/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltLeft/Area2D" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="Level/Duplicants/ConveyerBelts/ConvayerBeltLeft/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltLeft/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="Level/Duplicants/MagnetLevelEnd/Area2D" to="Level/Duplicants/MagnetLevelEnd/Area2D" method="_on_body_entered" flags=18]
