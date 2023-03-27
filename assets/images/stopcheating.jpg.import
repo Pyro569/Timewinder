@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cddndr1430h7w"
-path="res://.godot/imported/MagnetFut (active).png-e22df171400d815574b2e8ec80f2bcc8.ctex"
+uid="uid://6vcm70mdhbqa"
+path="res://.godot/imported/stopcheating.jpg-5169d494a94a567ef265589c542ce6b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Terrain assets/Magnets/MagnetFut (active).png"
-dest_files=["res://.godot/imported/MagnetFut (active).png-e22df171400d815574b2e8ec80f2bcc8.ctex"]
+source_file="res://assets/images/stopcheating.jpg"
+dest_files=["res://.godot/imported/stopcheating.jpg-5169d494a94a567ef265589c542ce6b3.ctex"]
 
 [params]
 

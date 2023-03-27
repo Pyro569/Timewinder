@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfx5prli40htm"]
+[gd_scene load_steps=6 format=3 uid="uid://dfx5prli40htm"]
 
 [ext_resource type="PackedScene" uid="uid://cfhi78bamp256" path="res://scenes/level4.tscn" id="1_loswl"]
 [ext_resource type="Texture2D" uid="uid://b82lt25amj6jf" path="res://assets/images/Terrain assets/NukeBarrel.v1.png" id="2_gd0ad"]
+[ext_resource type="Texture2D" uid="uid://6vcm70mdhbqa" path="res://assets/images/stopcheating.jpg" id="3_ex0pg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxcnl"]
 size = Vector2(33, 45)
@@ -30,3 +31,7 @@ shape = SubResource("RectangleShape2D_fxcnl")
 [node name="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D" index="1"]
 sprite_frames = SubResource("SpriteFrames_c6057")
 animation = &""
+
+[node name="Stopcheating" type="Sprite2D" parent="." index="4"]
+position = Vector2(-1352, 1708)
+texture = ExtResource("3_ex0pg")
