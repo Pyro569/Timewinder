@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqjngih1urqoc"]
+[gd_scene load_steps=13 format=3 uid="uid://cqjngih1urqoc"]
 
 [ext_resource type="PackedScene" uid="uid://cwfiobu0f8y3j" path="res://scenes/levelBase.tscn" id="1_ht1pf"]
 [ext_resource type="Script" path="res://scripts/titlescreen.gd" id="2_34dsw"]
@@ -7,7 +7,25 @@
 [ext_resource type="Script" path="res://scripts/titlescreenbutton.gd" id="4_jpsaw"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_teyiw"]
 [ext_resource type="Material" uid="uid://n1gbitqsg1tc" path="res://assets/shaders/crt_shader_material.tres" id="5_7lnpl"]
+[ext_resource type="Texture2D" uid="uid://bsoj2v4e7vsrp" path="res://assets/level/boxPast.png" id="6_ld0lm"]
 [ext_resource type="Texture2D" uid="uid://clyt08k8aw2wq" path="res://assets/images/white.png" id="6_mcl1h"]
+[ext_resource type="Texture2D" uid="uid://dailqp55lxaxv" path="res://assets/level/boxFuture.png" id="7_to6x0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oe0v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_010sm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ld0lm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_to6x0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" instance=ExtResource("1_ht1pf")]
 script = ExtResource("2_34dsw")
@@ -44,8 +62,11 @@ script = ExtResource("3_14c0n")
 stream = ExtResource("4_teyiw")
 volume_db = 24.0
 
+[node name="CollisionShape2D" parent="Level/Duplicants/Box/RigidBody2D" index="0"]
+shape = SubResource("RectangleShape2D_0oe0v")
+
 [node name="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D" index="1"]
-animation = &"new_animation"
+sprite_frames = SubResource("SpriteFrames_010sm")
 
 [node name="TextureRect2" type="TextureRect" parent="Effects" index="0"]
 material = ExtResource("5_7lnpl")

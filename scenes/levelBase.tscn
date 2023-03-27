@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://bsoj2v4e7vsrp" path="res://assets/level/boxPast.png" id="13_gd3i4"]
 [ext_resource type="Texture2D" uid="uid://01pfglg1chyr" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.1.png" id="13_iho7w"]
 [ext_resource type="Texture2D" uid="uid://dailqp55lxaxv" path="res://assets/level/boxFuture.png" id="14_5nin2"]
+[ext_resource type="Shape2D" uid="uid://du7j6ke0q3edy" path="res://assets/images/boxCollider'.tres" id="13_nof41"]
+[ext_resource type="SpriteFrames" uid="uid://cuo2xdvqo6jw0" path="res://assets/images/boxAni.tres" id="14_drviu"]
 [ext_resource type="Texture2D" uid="uid://bd4qju8g35q8t" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.2.png" id="14_v0cb8"]
 [ext_resource type="Script" path="res://scripts/switchFuturePastFrame.gd" id="15_cg0me"]
 [ext_resource type="Texture2D" uid="uid://c6ndm4xee6diy" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.3.png" id="15_fh1l5"]
@@ -199,14 +201,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8df5b"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxcnl"]
+size = Vector2(33, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6057"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("13_740no")
 }],
 "loop": true,
-"name": &"default",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -325,8 +330,8 @@ freeze_mode = 1
 script = ExtResource("9_03ebr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/Box/RigidBody2D"]
-position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_fxcnl")
+position = Vector2(32.5, 32.5)
+shape = ExtResource("13_nof41")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
