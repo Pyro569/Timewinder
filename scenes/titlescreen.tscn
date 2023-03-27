@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqjngih1urqoc"]
+[gd_scene load_steps=11 format=3 uid="uid://cqjngih1urqoc"]
 
 [ext_resource type="PackedScene" uid="uid://cwfiobu0f8y3j" path="res://scenes/levelBase.tscn" id="1_ht1pf"]
 [ext_resource type="Script" path="res://scripts/titlescreen.gd" id="2_34dsw"]
@@ -6,9 +6,7 @@
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="3_14c0n"]
 [ext_resource type="Script" path="res://scripts/titlescreenbutton.gd" id="4_jpsaw"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_teyiw"]
-[ext_resource type="Material" uid="uid://n1gbitqsg1tc" path="res://assets/shaders/crt_shader_material.tres" id="5_7lnpl"]
 [ext_resource type="Texture2D" uid="uid://bsoj2v4e7vsrp" path="res://assets/level/boxPast.png" id="6_ld0lm"]
-[ext_resource type="Texture2D" uid="uid://clyt08k8aw2wq" path="res://assets/images/white.png" id="6_mcl1h"]
 [ext_resource type="Texture2D" uid="uid://dailqp55lxaxv" path="res://assets/level/boxFuture.png" id="7_to6x0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0oe0v"]
@@ -69,14 +67,6 @@ shape = SubResource("RectangleShape2D_0oe0v")
 sprite_frames = SubResource("SpriteFrames_010sm")
 animation = &"default"
 
-[node name="TextureRect2" type="TextureRect" parent="Effects" index="0"]
-material = ExtResource("5_7lnpl")
-offset_left = 437.0
-offset_top = -2160.0
-offset_right = 3085.0
-offset_bottom = -376.0
-texture = ExtResource("6_mcl1h")
-
 [node name="RichTextLabel" type="RichTextLabel" parent="Effects" index="2"]
 modulate = Color(0.980392, 0, 0.235294, 1)
 offset_left = 1290.0
@@ -120,6 +110,19 @@ offset_bottom = 50.9005
 scale = Vector2(1, 0.774758)
 text = "Start"
 script = ExtResource("4_jpsaw")
+
+[node name="TextureRect2" parent="Effects" index="6"]
+offset_left = 6983.0
+offset_top = 566.0
+offset_right = 9631.0
+offset_bottom = 2350.0
+
+[node name="TextureRect3" parent="Effects" index="7"]
+offset_left = 4818.0
+offset_top = -1866.0
+offset_right = 7466.0
+offset_bottom = -348.0
+scale = Vector2(1.2719, 0.784307)
 
 [connection signal="pressed" from="Effects/RichTextLabel/Button" to="Effects/RichTextLabel/Button" method="_on_pressed"]
 [connection signal="pressed" from="Effects/RichTextLabel2/Button" to="Effects/RichTextLabel2/Button" method="_on_pressed"]
