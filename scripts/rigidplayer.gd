@@ -2,6 +2,8 @@ class_name Player
 
 extends RigidBody2D
 
+var stop = false
+
 # This is now a RigidBody2D so other rigidbody collision will work
 
 func _ready():
@@ -10,12 +12,15 @@ func _ready():
 
 @export var speed = 200
 func get_input():
-	var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
-	if input_direction.x < 0:
-		$AnimatedSprite2D.flip_h = true
-	elif input_direction.x > 0:
-		$AnimatedSprite2D.flip_h = false
-	set_linear_velocity(input_direction * speed)
+	if !stop:
+		var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
+		if input_direction.x < 0:
+			$AnimatedSprite2D.flip_h = true
+		elif input_direction.x > 0:
+			$AnimatedSprite2D.flip_h = false
+		set_linear_velocity(input_direction * speed)
+	else:
+		set_linear_velocity(Vector2.ZERO)
 
 func _physics_process(_delta):
 	#print(position)

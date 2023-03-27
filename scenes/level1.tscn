@@ -40,6 +40,9 @@ script = ExtResource("8_4xa77")
 stream = ExtResource("4_hjdk5")
 volume_db = 24.0
 
+[node name="AnimatedSprite2D" parent="Level/Duplicants/MagnetLevelEnd/Area2D" index="1"]
+position = Vector2(32, -269)
+
 [node name="TravelCounter" parent="Effects" index="2"]
 text = "[W][A][S][D] to move John-E-VI
 "

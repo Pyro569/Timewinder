@@ -26,12 +26,12 @@ func _process(_delta):
 
 func _integrate_forces(state):
 	if next_pos != Vector2(0, 0):
-		print("STATE: " + str(state.transform.origin), ", ", str(next_pos))
+		#print("STATE: " + str(state.transform.origin), ", ", str(next_pos))
 		state.transform.origin += next_pos
 		next_pos = Vector2(0, 0)
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0.0
-		print("RESULT: " + str(state.transform.origin), ", ", str(next_pos))
+		#print("RESULT: " + str(state.transform.origin), ", ", str(next_pos))
 
 #func _integrate_forces(state):
 #	if teleport != Vector2(0, 0):
