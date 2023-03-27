@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bpmf5c0jgra2j" path="res://assets/level/levelTilemap.tres" id="2_u35sl"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="3_auue2"]
 
-[node name="Node2D" instance=ExtResource("1_2yx23")]
+[node name="Node2D2" instance=ExtResource("1_2yx23")]
 
 [node name="TileMap" type="TileMap" parent="Level" index="0"]
 tile_set = ExtResource("2_u35sl")
