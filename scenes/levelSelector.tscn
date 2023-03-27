@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://f63htty0opia"]
+
+[node name="levelSelector" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 1.0
+offset_top = -5.0
+offset_right = 103.0
+offset_bottom = 109.0
+text = "TODO: implement this level selector"
