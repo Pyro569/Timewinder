@@ -16,6 +16,7 @@ var gameStartTime = Time.get_ticks_msec()
 var unixTime = 3
 var moved = false
 var moved2 = false
+var level1Bool = false
 
 var timeTravels = 0
 
@@ -186,6 +187,7 @@ func _process(_delta):
 		travelCounterNode2.visible = false
 	if get_node_or_null("/root/Node2D/Effects/Level1"):
 		if moved == false:
+			level1Bool = true
 			travelCounterNode.text = "[W][A][S][D] to move John-E-VI"
 			travelCounterNode2.text = "[W][A][S][D] to move John-E-VI"
 			moved = true
@@ -202,36 +204,37 @@ func _process(_delta):
 		travelCounterNode.text = "Travels: " + str(timeTravels)
 		travelCounterNode2.text = "Travels: " + str(timeTravels)
 	if Input.is_action_just_pressed("timeTravel") and unixTime >= 2:
-		get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").stream = get_random_teleport_sound()
-		get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").play()
-		if future:
-			future = false
-			get_node("/root/Node2D/Camera/Camera2D").position = past_cam
-			get_node("/root/Node2D/Player/RigidBody2D").position += Globals.cam_delta
-			if konamied == false:
-				unixTime = 0
-			timeTravels = timeTravels + 1
-			travelCounterNode.text = "Travels: " + str(timeTravels)
-			travelCounterNode2.text = "Travels: " + str(timeTravels)
-			for dupe in duplicants:
-				dupe.past()
-			to_past.emit()
-		else:
-			future = true
-			get_node("/root/Node2D/Camera/Camera2D").position = future_cam
-			get_node("/root/Node2D/Player/RigidBody2D").position -= Globals.cam_delta
-			if konamied == false:
-				unixTime = 0
-			timeTravels = timeTravels + 1
-			travelCounterNode.text = "Travels: " + str(timeTravels)
-			travelCounterNode2.text = "Travels: " + str(timeTravels)
-			for dupe in duplicants:
-				dupe.future()
-			to_future.emit()
-	elif unixTime < 2 and Input.is_action_just_pressed("timeTravel"):
+		if level1Bool == false:
+			get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").stream = get_random_teleport_sound()
+			get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").play()
+			if future:
+				future = false
+				get_node("/root/Node2D/Camera/Camera2D").position = past_cam
+				get_node("/root/Node2D/Player/RigidBody2D").position += Globals.cam_delta
+				if konamied == false:
+					unixTime = 0
+				timeTravels = timeTravels + 1
+				travelCounterNode.text = "Travels: " + str(timeTravels)
+				travelCounterNode2.text = "Travels: " + str(timeTravels)
+				for dupe in duplicants:
+					dupe.past()
+				to_past.emit()
+			else:
+				future = true
+				get_node("/root/Node2D/Camera/Camera2D").position = future_cam
+				get_node("/root/Node2D/Player/RigidBody2D").position -= Globals.cam_delta
+				if konamied == false:
+					unixTime = 0
+				timeTravels = timeTravels + 1
+				travelCounterNode.text = "Travels: " + str(timeTravels)
+				travelCounterNode2.text = "Travels: " + str(timeTravels)
+				for dupe in duplicants:
+					dupe.future()
+				to_future.emit()
+		elif unixTime < 2 and Input.is_action_just_pressed("timeTravel"):
 		# This executes the sound as soon and only once when the designetated key for time trabeling is pressed
-		get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").stream = playnotravelsound
-		get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").play()
+			get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").stream = playnotravelsound
+			get_node("/root/Node2D/Camera/Camera2D/AudioStreamPlayer").play()
 	
 	if unixTime >= 3:
 		unixTime = 3
