@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=95 format=3 uid="uid://bpmf5c0jgra2j"]
+[gd_resource type="TileSet" load_steps=97 format=3 uid="uid://bpmf5c0jgra2j"]
 
 [ext_resource type="Texture2D" uid="uid://c66ibf3qwis6w" path="res://assets/level/placeholdertileset.png" id="1_5olok"]
 [ext_resource type="Texture2D" uid="uid://da1i3735c0evd" path="res://assets/objects/box.png" id="1_nmvxp"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cu3jtxqx8ut4n" path="res://assets/objects/conveyordown.png" id="15_u0y53"]
 [ext_resource type="Texture2D" uid="uid://cili4ob8hbc3r" path="res://assets/objects/conveyorleft.png" id="16_boqi6"]
 [ext_resource type="Texture2D" uid="uid://dsbjiyrja5k2" path="res://assets/objects/timestop.png" id="16_u8s3g"]
+[ext_resource type="Texture2D" uid="uid://cc75k4syjyhb8" path="res://assets/objects/nuclearwaste.png" id="17_ofmyv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d103o"]
 texture = ExtResource("1_nmvxp")
@@ -1270,6 +1271,13 @@ texture_region_size = Vector2i(64, 64)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caj4f"]
+texture = ExtResource("17_ofmyv")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4v216"]
 texture = ExtResource("10_mb1vl")
 texture_region_size = Vector2i(64, 64)
@@ -1353,3 +1361,4 @@ sources/19 = SubResource("TileSetAtlasSource_6rop6")
 sources/20 = SubResource("TileSetAtlasSource_3dg6c")
 sources/21 = SubResource("TileSetAtlasSource_cga0c")
 sources/22 = SubResource("TileSetAtlasSource_5ir8f")
+sources/23 = SubResource("TileSetAtlasSource_caj4f")

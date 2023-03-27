@@ -38,6 +38,7 @@ var id_to_node = {
 	9: "ConveyerBelts/ConvayerBeltLeft",
 	10: "ConveyerBelts/ConvayerBeltRight",
 	11: "ConveyerBelts/ConvayerBeltUp",
+	23: "NuclearWaste"
 }
 
 var MAX_SIGNAL_LENGTH = 64

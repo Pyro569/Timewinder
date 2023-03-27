@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cwfiobu0f8y3j"]
+[gd_scene load_steps=61 format=3 uid="uid://cwfiobu0f8y3j"]
 
 [ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_serme"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
@@ -15,9 +15,8 @@
 [ext_resource type="Script" path="res://scripts/duplicant/activatee.gd" id="11_b6nej"]
 [ext_resource type="Script" path="res://scripts/fadeout.gd" id="11_kv4tm"]
 [ext_resource type="Script" path="res://scripts/duplicant/rigiddupe.gd" id="11_wmxf4"]
-[ext_resource type="Texture2D" uid="uid://bsoj2v4e7vsrp" path="res://assets/level/boxPast.png" id="13_b71kc"]
+[ext_resource type="Texture2D" uid="uid://b82lt25amj6jf" path="res://assets/images/Terrain assets/NukeBarrel.v1.png" id="13_740no"]
 [ext_resource type="Texture2D" uid="uid://01pfglg1chyr" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.1.png" id="13_iho7w"]
-[ext_resource type="Texture2D" uid="uid://dailqp55lxaxv" path="res://assets/level/boxFuture.png" id="14_osyvd"]
 [ext_resource type="Texture2D" uid="uid://bd4qju8g35q8t" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.2.png" id="14_v0cb8"]
 [ext_resource type="Script" path="res://scripts/switchFuturePastFrame.gd" id="15_cg0me"]
 [ext_resource type="Texture2D" uid="uid://c6ndm4xee6diy" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.3.png" id="15_fh1l5"]
@@ -33,6 +32,17 @@
 [ext_resource type="Script" path="res://scripts/duplicant/Conveyer belt logic/conveyerDown.gd" id="25_wcqi0"]
 [ext_resource type="Script" path="res://scripts/duplicant/Conveyer belt logic/conveyerLeft.gd" id="26_cfy4s"]
 [ext_resource type="Script" path="res://scripts/duplicant/Conveyer belt logic/conveyerRight.gd" id="27_frame"]
+[ext_resource type="Script" path="res://scripts/duplicant/semirigid.gd" id="32_ifcf0"]
+[ext_resource type="Script" path="res://scripts/duplicant/semirigids/toxicpuddle.gd" id="33_ecg0f"]
+[ext_resource type="Texture2D" uid="uid://dx24vccak3qn0" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle1.png" id="33_rg2hq"]
+[ext_resource type="Texture2D" uid="uid://bmqt42hk8apil" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle2.png" id="34_omlcq"]
+[ext_resource type="Texture2D" uid="uid://cwiw0stqkkca" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle3.png" id="35_l8h36"]
+[ext_resource type="Texture2D" uid="uid://dowuy66d044qq" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle4.png" id="36_t23ti"]
+[ext_resource type="Texture2D" uid="uid://qb7akjinuas" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle5.png" id="37_dcqka"]
+[ext_resource type="Texture2D" uid="uid://byfgy7ncfxu6m" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle6.png" id="38_0hvw5"]
+[ext_resource type="Texture2D" uid="uid://6hn3a00tcc03" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle7.png" id="39_dkgb0"]
+[ext_resource type="Texture2D" uid="uid://cshdmvc0748e2" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle8.png" id="40_rokkl"]
+[ext_resource type="Texture2D" uid="uid://dk26tn5gfkq4h" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle9.png" id="41_amj8s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fo6o"]
 friction = 0.0
@@ -87,19 +97,16 @@ animations = [{
 friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxcnl"]
-size = Vector2(64, 64)
+size = Vector2(33, 45)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c6057"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_b71kc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_osyvd")
+"texture": ExtResource("13_740no")
 }],
 "loop": true,
-"name": &"default",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -146,6 +153,44 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vlf6"]
+size = Vector2(119, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k44cj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_rg2hq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_omlcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_l8h36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_t23ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_dcqka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_0hvw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_dkgb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_rokkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_amj8s")
+}],
+"loop": true,
+"name": &"ToxicPuddle",
 "speed": 5.0
 }]
 
@@ -270,6 +315,7 @@ shape = SubResource("RectangleShape2D_fxcnl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_c6057")
+animation = &""
 script = ExtResource("15_cg0me")
 
 [node name="ConveyerBelts" type="Node" parent="Level/Duplicants"]
@@ -370,6 +416,39 @@ scale = Vector2(1.048, 1.056)
 sprite_frames = SubResource("SpriteFrames_jq6sy")
 script = ExtResource("15_cg0me")
 
+[node name="NuclearWaste" type="Node2D" parent="Level/Duplicants"]
+position = Vector2(-116, -286)
+script = ExtResource("32_ifcf0")
+
+[node name="Area2D" type="Area2D" parent="Level/Duplicants/NuclearWaste"]
+script = ExtResource("33_ecg0f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/NuclearWaste/Area2D"]
+position = Vector2(32.5, 31)
+shape = SubResource("RectangleShape2D_1vlf6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/NuclearWaste/Area2D"]
+position = Vector2(32, 24)
+sprite_frames = SubResource("SpriteFrames_k44cj")
+animation = &"ToxicPuddle"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Level/Duplicants/NuclearWaste"]
+mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_avrps")
+gravity_scale = 0.0
+lock_rotation = true
+freeze_mode = 1
+script = ExtResource("9_03ebr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/NuclearWaste/RigidBody2D"]
+position = Vector2(32.5, 30.5)
+shape = SubResource("RectangleShape2D_fxcnl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/NuclearWaste/RigidBody2D"]
+position = Vector2(33, 32)
+sprite_frames = SubResource("SpriteFrames_c6057")
+animation = &"new_animation"
+
 [node name="Effects" type="Node" parent="."]
 
 [node name="Fadeout" type="ColorRect" parent="Effects"]
@@ -423,3 +502,5 @@ tab_size = 9
 [connection signal="body_entered" from="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D" to="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="Level/Duplicants/MagnetLevelEnd/Area2D" to="Level/Duplicants/MagnetLevelEnd/Area2D" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Level/Duplicants/NuclearWaste/Area2D" to="Level/Duplicants/NuclearWaste/Area2D" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="Level/Duplicants/NuclearWaste/Area2D" to="Level/Duplicants/NuclearWaste/Area2D" method="_on_body_exited" flags=18]
