@@ -189,13 +189,15 @@ func _process(_delta):
 			travelCounterNode.text = "[W][A][S][D] to move John-E-VI"
 			travelCounterNode2.text = "[W][A][S][D] to move John-E-VI"
 			moved = true
-		if Input.is_action_pressed("moveLeft") or Input.is_action_pressed("moveRight") or Input.is_action_pressed("moveUp") or Input.is_action_pressed("moveDown") and moved == true:
-			travelCounterNode.text = "[TAB] to reset level"
-			travelCounterNode2.text = "[TAB] to reset level"
-			moved2 = true
-		if moved2 == true:
-			travelCounterNode.text = "Reach the magnet to beat the level"
-			travelCounterNode2.text = "Reach the magnet to beat the level"
+		if Input.is_action_pressed("moveLeft") or Input.is_action_pressed("moveRight") or Input.is_action_pressed("moveUp") or Input.is_action_pressed("moveDown"):
+			if moved == true:
+				travelCounterNode.text = "[TAB] to reset level"
+				travelCounterNode2.text = "[TAB] to reset level"
+				moved2 = true
+		if Input.is_action_pressed("moveLeft") or Input.is_action_pressed("moveRight") or Input.is_action_pressed("moveUp") or Input.is_action_pressed("moveDown"):
+			if moved2 == true:
+				travelCounterNode.text = "Reach the magnet to beat the level"
+				travelCounterNode2.text = "Reach the magnet to beat the level"
 	else:
 		travelCounterNode.text = "Travels: " + str(timeTravels)
 		travelCounterNode2.text = "Travels: " + str(timeTravels)
