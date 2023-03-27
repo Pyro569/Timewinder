@@ -15,6 +15,7 @@ var gameStartTime = Time.get_ticks_msec()
 
 var unixTime = 3
 var moved = false
+var moved2 = false
 
 var timeTravels = 0
 
@@ -188,7 +189,11 @@ func _process(_delta):
 			travelCounterNode.text = "[W][A][S][D] to move John-E-VI"
 			travelCounterNode2.text = "[W][A][S][D] to move John-E-VI"
 			moved = true
-		if Input.is_action_pressed("moveLeft") or Input.is_action_pressed("moveRight") or Input.is_action_pressed("moveUp") or Input.is_action_pressed("moveDown"):
+		if Input.is_action_pressed("moveLeft") or Input.is_action_pressed("moveRight") or Input.is_action_pressed("moveUp") or Input.is_action_pressed("moveDown") and moved == true:
+			travelCounterNode.text = "[TAB] to reset level"
+			travelCounterNode2.text = "[TAB] to reset level"
+			moved2 = true
+		if moved2 == true:
 			travelCounterNode.text = "Reach the magnet to beat the level"
 			travelCounterNode2.text = "Reach the magnet to beat the level"
 	else:
