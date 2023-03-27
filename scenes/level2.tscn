@@ -47,6 +47,9 @@ script = ExtResource("8_iuf6l")
 stream = ExtResource("4_lsh8t")
 volume_db = 24.0
 
+[node name="Area2D" parent="Level/Duplicants/MagnetLevelEnd" index="0"]
+position = Vector2(28, 27)
+
 [node name="CollisionShape2D" parent="Level/Duplicants/MagnetLevelEnd/Area2D" index="0"]
 position = Vector2(0.536011, 0.419983)
 
