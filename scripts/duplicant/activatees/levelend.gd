@@ -2,6 +2,7 @@ extends Area2D
 
 var won = false
 var done = false
+var spaghettiframes = 50
 
 func _on_body_entered(body):
 	if body.get_parent().get_name() == "Player" and get_parent().activators > 0:
@@ -18,8 +19,9 @@ func _process(_delta):
 		else:
 			current_cam = tilemap.past_cam.y
 		print("endmagnet: ", str(current_cam), str($AnimatedSprite2D.position.y))
-		if $AnimatedSprite2D.position.y >= current_cam + 324:
+		if spaghettiframes > 0:
 			$AnimatedSprite2D.position.y -= 10
+			spaghettiframes -= 1
 			get_node("/root/Node2D/Player/RigidBody2D/AnimatedSprite2D").position = $AnimatedSprite2D.position - Vector2(75, -275)
 		else:
 			won = false
