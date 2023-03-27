@@ -442,6 +442,7 @@ sprite_frames = SubResource("SpriteFrames_jq6sy")
 script = ExtResource("15_cg0me")
 
 [node name="NuclearWaste" type="Node2D" parent="Level/Duplicants"]
+z_index = -2
 position = Vector2(-116, -286)
 script = ExtResource("32_ifcf0")
 
