@@ -14,5 +14,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("timeTravel"):
-		tutorial_node.text = "Reach the magnet to beat the level"
-		tutorial_node2.text = "Reach the magnet to beat the level"
+		tutorial_node.text = "[TAB] to reset level if stuck"
+		tutorial_node2.text = "[TAB] to reset level if stuck"
