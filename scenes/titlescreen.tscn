@@ -111,18 +111,5 @@ scale = Vector2(1, 0.774758)
 text = "Start"
 script = ExtResource("4_jpsaw")
 
-[node name="TextureRect2" parent="Effects" index="6"]
-offset_left = 6983.0
-offset_top = 566.0
-offset_right = 9631.0
-offset_bottom = 2350.0
-
-[node name="TextureRect3" parent="Effects" index="7"]
-offset_left = 4818.0
-offset_top = -1866.0
-offset_right = 7466.0
-offset_bottom = -348.0
-scale = Vector2(1.2719, 0.784307)
-
 [connection signal="pressed" from="Effects/RichTextLabel/Button" to="Effects/RichTextLabel/Button" method="_on_pressed"]
 [connection signal="pressed" from="Effects/RichTextLabel2/Button" to="Effects/RichTextLabel2/Button" method="_on_pressed"]
