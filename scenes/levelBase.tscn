@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cwfiobu0f8y3j"]
+[gd_scene load_steps=66 format=3 uid="uid://cwfiobu0f8y3j"]
 
 [ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_serme"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://scripts/switchFuturePastFrame.gd" id="15_cg0me"]
 [ext_resource type="Texture2D" uid="uid://c6ndm4xee6diy" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.3.png" id="15_fh1l5"]
 [ext_resource type="Script" path="res://scripts/duplicant/Conveyer belt logic/conveyerUp.gd" id="16_42ryo"]
+[ext_resource type="Script" path="res://scripts/duplicant.gd" id="16_krf7l"]
 [ext_resource type="Texture2D" uid="uid://ew54rbord8pi" path="res://assets/images/Terrain assets/Magnets/MagnetFut.png" id="16_m20mm"]
 [ext_resource type="Texture2D" uid="uid://c2301siipvwt6" path="res://assets/images/Terrain assets/NorthSouthConveyerPast/convN.P.4.png" id="16_o7i7g"]
 [ext_resource type="Shape2D" uid="uid://b21pge0f65fhg" path="res://assets/objects/convayerCollision.tres" id="17_l3i86"]
@@ -98,8 +99,8 @@ animations = [{
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_avrps"]
 friction = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxcnl"]
-size = Vector2(33, 45)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6cjy"]
+size = Vector2(63, 65)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c6057"]
 animations = [{
@@ -198,6 +199,9 @@ animations = [{
 "name": &"ToxicPuddle",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxcnl"]
+size = Vector2(33, 45)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8df5b"]
 animations = [{
@@ -325,8 +329,8 @@ freeze_mode = 1
 script = ExtResource("9_03ebr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/Box/RigidBody2D"]
-position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_fxcnl")
+position = Vector2(31.5, 32.5)
+shape = SubResource("RectangleShape2D_w6cjy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
@@ -339,9 +343,10 @@ script = ExtResource("15_cg0me")
 [node name="ConvayerBeltUp" type="Node2D" parent="Level/Duplicants/ConveyerBelts"]
 position = Vector2(112, -208)
 rotation = -3.14159
+script = ExtResource("16_krf7l")
 
 [node name="Area2D" type="Area2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltUp"]
-position = Vector2(-7.62939e-06, -62)
+position = Vector2(-64.0002, -61.9998)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("16_42ryo")
@@ -357,7 +362,8 @@ sprite_frames = SubResource("SpriteFrames_4ggaw")
 autoplay = "default"
 
 [node name="ConvayerBeltDown" type="Node2D" parent="Level/Duplicants/ConveyerBelts"]
-position = Vector2(232, -192)
+position = Vector2(0, -192)
+script = ExtResource("16_krf7l")
 
 [node name="Area2D" type="Area2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltDown"]
 collision_layer = 3
@@ -377,6 +383,7 @@ autoplay = "default"
 [node name="ConvayerBeltLeft" type="Node2D" parent="Level/Duplicants/ConveyerBelts"]
 position = Vector2(128, -160)
 rotation = -4.71238
+script = ExtResource("16_krf7l")
 
 [node name="Area2D" type="Area2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltLeft"]
 position = Vector2(-7.62939e-06, -62)
@@ -397,8 +404,10 @@ autoplay = "default"
 [node name="ConvayerBeltRight" type="Node2D" parent="Level/Duplicants/ConveyerBelts"]
 position = Vector2(168, -240)
 rotation = 4.71238
+script = ExtResource("16_krf7l")
 
 [node name="Area2D" type="Area2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltRight"]
+position = Vector2(-64, -0.000579834)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("27_frame")
