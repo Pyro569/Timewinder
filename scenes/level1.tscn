@@ -41,6 +41,7 @@ stream = ExtResource("4_hjdk5")
 volume_db = 24.0
 
 [node name="AnimatedSprite2D" parent="Level/Duplicants/MagnetLevelEnd/Area2D" index="1"]
+z_index = 7
 position = Vector2(32, -269)
 
 [node name="TravelCounter" parent="Effects" index="2"]
