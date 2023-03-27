@@ -1,6 +1,7 @@
 extends Node2D
 
 var init_pos: Vector2i
+var prev_pos: Vector2
 var travelvects = []
 
 func future():

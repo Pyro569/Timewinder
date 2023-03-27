@@ -44,6 +44,9 @@ script = ExtResource("3_14c0n")
 stream = ExtResource("4_teyiw")
 volume_db = 24.0
 
+[node name="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D" index="1"]
+animation = &"new_animation"
+
 [node name="TextureRect2" type="TextureRect" parent="Effects" index="0"]
 material = ExtResource("5_7lnpl")
 offset_left = 437.0

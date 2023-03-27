@@ -127,8 +127,8 @@ func _ready():
 			duplicants.append(new_node)
 			parent_node.add_sibling(new_node)
 			new_node.init_pos = cell
+			new_node.prev_pos = cell * cell_size
 			new_node.global_position = cell * cell_size
-			new_node.scale /= parent_node.scale
 			if activator_ids.has(id):
 				activators[cell] = new_node
 			if activatee_ids.has(id):
@@ -167,8 +167,6 @@ func _ready():
 			dupe.travelvects = resolve_signal(dupe.init_pos, tvect_arrows.find(id), [], true)
 			print(dupe.travelvects)
 		if future:
-			dupe.future()
-			dupe.past()
 			dupe.future()
 		
 	add_child(timer)
