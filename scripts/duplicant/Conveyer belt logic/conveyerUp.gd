@@ -25,8 +25,10 @@ func modifyBodySpeed(body, movement):
 func _process(_delta):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
-		if(body.get("constant_force").x == 0 and body.get("constant_force").y == 0):
-			modifyBodySpeed(body, Vector2(0, -1))
+		if(body.get("constant_force") != null):
+			if(body.get("constant_force").x == 0 and body.get("constant_force").y == 0):
+				modifyBodySpeed(body, Vector2(0, -1))
 
 func _on_body_exited(body):
-	modifyBodySpeed(body, Vector2(0, 0))
+	if(body.get("constant_force") != null):
+		modifyBodySpeed(body, Vector2(0, 0))

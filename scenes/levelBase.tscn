@@ -356,7 +356,7 @@ position = Vector2(31.9999, 29.9998)
 shape = ExtResource("17_l3i86")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltUp/Area2D"]
-z_index = -1
+z_index = -2
 position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_4ggaw")
 autoplay = "default"
@@ -375,7 +375,7 @@ position = Vector2(32, 32)
 shape = ExtResource("17_l3i86")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltDown/Area2D"]
-z_index = -1
+z_index = -2
 position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_4ggaw")
 autoplay = "default"
@@ -396,7 +396,7 @@ position = Vector2(31.9996, 29.9995)
 shape = ExtResource("17_l3i86")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltLeft/Area2D"]
-z_index = -1
+z_index = -2
 position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_4ggaw")
 autoplay = "default"
@@ -417,7 +417,7 @@ position = Vector2(31.9999, 32.0002)
 shape = ExtResource("17_l3i86")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltRight/Area2D"]
-z_index = -1
+z_index = -2
 position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_4ggaw")
 autoplay = "default"
@@ -455,6 +455,7 @@ position = Vector2(32.5, 31)
 shape = SubResource("RectangleShape2D_1vlf6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/NuclearWaste/Area2D"]
+z_index = 1
 position = Vector2(32, 24)
 sprite_frames = SubResource("SpriteFrames_k44cj")
 animation = &"ToxicPuddle"
