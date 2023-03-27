@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cwfiobu0f8y3j"]
+[gd_scene load_steps=66 format=3 uid="uid://cwfiobu0f8y3j"]
 
 [ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_serme"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
@@ -46,8 +46,6 @@
 [ext_resource type="Texture2D" uid="uid://6hn3a00tcc03" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle7.png" id="39_dkgb0"]
 [ext_resource type="Texture2D" uid="uid://cshdmvc0748e2" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle8.png" id="40_rokkl"]
 [ext_resource type="Texture2D" uid="uid://dk26tn5gfkq4h" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle9.png" id="41_amj8s"]
-[ext_resource type="Material" uid="uid://n1gbitqsg1tc" path="res://assets/shaders/crt_shader_material.tres" id="47_7lh6e"]
-[ext_resource type="Texture2D" uid="uid://clyt08k8aw2wq" path="res://assets/images/white.png" id="48_ogddv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fo6o"]
 friction = 0.0
@@ -253,7 +251,7 @@ _data = {
 "fade_to_black": SubResource("Animation_qloc4")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="Player" type="Node" parent="."]
 
@@ -292,18 +290,6 @@ script = ExtResource("5_1clpx")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera/Camera2D"]
 stream = ExtResource("4_2jam3")
 volume_db = 14.991
-
-[node name="TextureRect3" type="TextureRect" parent="Camera/Camera2D"]
-top_level = true
-light_mask = 1023
-visibility_layer = 1023
-material = ExtResource("47_7lh6e")
-offset_left = -6760.0
-offset_top = -4213.0
-offset_right = -5435.0
-offset_bottom = -1230.0
-scale = Vector2(10.945, 2.91244)
-texture = ExtResource("48_ogddv")
 
 [node name="Level" type="Node" parent="."]
 
@@ -437,7 +423,6 @@ sprite_frames = SubResource("SpriteFrames_4ggaw")
 autoplay = "default"
 
 [node name="MagnetLevelEnd" type="Node2D" parent="Level/Duplicants"]
-z_index = 7
 position = Vector2(-136, -96)
 script = ExtResource("11_b6nej")
 
@@ -457,7 +442,6 @@ sprite_frames = SubResource("SpriteFrames_jq6sy")
 script = ExtResource("15_cg0me")
 
 [node name="NuclearWaste" type="Node2D" parent="Level/Duplicants"]
-z_index = -2
 position = Vector2(-116, -286)
 script = ExtResource("32_ifcf0")
 
