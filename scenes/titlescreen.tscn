@@ -67,6 +67,7 @@ shape = SubResource("RectangleShape2D_0oe0v")
 
 [node name="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D" index="1"]
 sprite_frames = SubResource("SpriteFrames_010sm")
+animation = &"default"
 
 [node name="TextureRect2" type="TextureRect" parent="Effects" index="0"]
 material = ExtResource("5_7lnpl")
