@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckx0s37r84ptj"]
+[gd_scene load_steps=13 format=3 uid="uid://ckx0s37r84ptj"]
 
 [ext_resource type="Texture2D" uid="uid://b1k54bprgu5d4" path="res://assets/images/Menu assets/retry.png" id="1_5a6mc"]
 [ext_resource type="Script" path="res://scripts/Menu/levelCompleteText.gd" id="1_ef8y0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/Menu/prevTime.gd" id="10_80rwi"]
 [ext_resource type="Script" path="res://scripts/Menu/retry.gd" id="10_ohvxh"]
 [ext_resource type="Script" path="res://scripts/Menu/prevWarp.gd" id="11_5mkw6"]
+[ext_resource type="AudioStream" uid="uid://d4ddhf5kp1u4" path="res://assets/sounds/music/levelWin.mp3" id="12_ie47j"]
 
 [node name="levelWin" type="Node2D"]
 
@@ -119,6 +120,11 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "Best Time"
 script = ExtResource("8_gkioj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ie47j")
+volume_db = -15.808
+autoplay = true
 
 [connection signal="button_down" from="retry" to="retry" method="_on_button_down"]
 [connection signal="button_down" from="nextLevel" to="nextLevel" method="_on_button_down"]

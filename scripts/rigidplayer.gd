@@ -7,6 +7,7 @@ var stop = false
 # This is now a RigidBody2D so other rigidbody collision will work
 
 func _ready():
+	Globals.muted = false
 	set_contact_monitor(true)
 	set_max_contacts_reported(4)
 
