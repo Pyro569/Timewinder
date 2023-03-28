@@ -1,6 +1,7 @@
-[gd_scene load_steps=67 format=3 uid="uid://cwfiobu0f8y3j"]
+[gd_scene load_steps=65 format=3 uid="uid://cwfiobu0f8y3j"]
 
 [ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_serme"]
+[ext_resource type="Shape2D" uid="uid://dg50xtd63aair" path="res://assets/playerColl.tres" id="2_yro6f"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_2jam3"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
@@ -52,9 +53,6 @@
 friction = 0.0
 absorbent = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf85u"]
-size = Vector2(42, 46)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fkih"]
 animations = [{
 "frames": [{
@@ -99,9 +97,6 @@ animations = [{
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_avrps"]
 friction = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6cjy"]
-size = Vector2(64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c6057"]
 animations = [{
@@ -201,9 +196,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxcnl"]
-size = Vector2(33, 45)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_8df5b"]
 animations = [{
 "frames": [{
@@ -269,7 +261,8 @@ linear_damp_mode = 1
 script = ExtResource("3_vblnu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
-shape = SubResource("RectangleShape2D_rf85u")
+z_index = 2
+shape = ExtResource("2_yro6f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/RigidBody2D"]
 position = Vector2(0, -1)
@@ -340,8 +333,9 @@ freeze_mode = 1
 script = ExtResource("9_03ebr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/Box/RigidBody2D"]
-position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_w6cjy")
+position = Vector2(32, 30)
+scale = Vector2(1.6, 1.56)
+shape = ExtResource("2_yro6f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/Box/RigidBody2D"]
 position = Vector2(32, 32)
@@ -466,7 +460,6 @@ position = Vector2(32.5, 31)
 shape = SubResource("RectangleShape2D_1vlf6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/NuclearWaste/Area2D"]
-z_index = 1
 position = Vector2(32, 24)
 sprite_frames = SubResource("SpriteFrames_k44cj")
 animation = &"ToxicPuddle"
@@ -480,8 +473,9 @@ freeze_mode = 1
 script = ExtResource("9_03ebr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Duplicants/NuclearWaste/RigidBody2D"]
-position = Vector2(32.5, 30.5)
-shape = SubResource("RectangleShape2D_fxcnl")
+position = Vector2(32, 29)
+scale = Vector2(0.84, 1.08)
+shape = ExtResource("2_yro6f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Duplicants/NuclearWaste/RigidBody2D"]
 position = Vector2(33, 32)
