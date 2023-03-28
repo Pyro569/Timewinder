@@ -7,6 +7,7 @@ var stop = false
 # This is now a RigidBody2D so other rigidbody collision will work
 
 func _ready():
+	Globals.muted = false
 	set_contact_monitor(true)
 	set_max_contacts_reported(4)
 
@@ -28,9 +29,14 @@ func _physics_process(_delta):
 	#print(position)
 	get_input()
 	if get_linear_velocity().x != 0 or get_linear_velocity().y != 0:
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
+		if(get_linear_velocity().y > 0):
+			$AnimatedSprite2D.frame = 2
+		elif(get_linear_velocity().y < 0):
+			$AnimatedSprite2D.frame = 1
+		else:
+			$AnimatedSprite2D.frame = 0
+	#else:
+	#	$AnimatedSprite2D.stop()
 	if Input.is_action_pressed("reload"):
 		get_tree().reload_current_scene()
 	#print("\n" + str(get_colliding_bodies()) + "\n")

@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_serme"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_2jam3"]
+[ext_resource type="Texture2D" uid="uid://dmkigd7bkvhmq" path="res://assets/images/JOHN.v.1/JohnNorth.png" id="4_aoik8"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
+[ext_resource type="Texture2D" uid="uid://d11iwk1qk4k47" path="res://assets/images/JOHN.v.1/JohnSouth.png" id="5_e0u7s"]
 [ext_resource type="Script" path="res://scenes/pastFutureLabel.gd" id="5_ngpcq"]
 [ext_resource type="Script" path="res://scripts/duplicant/activatees/levelend.gd" id="5_pgmiy"]
 [ext_resource type="Script" path="res://scripts/duplicant/activator.gd" id="5_w6q2s"]
@@ -60,6 +62,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_serme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aoik8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e0u7s")
 }],
 "loop": true,
 "name": &"default",
