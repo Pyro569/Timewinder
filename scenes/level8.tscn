@@ -36,5 +36,4 @@ layer_3/tile_data = PackedInt32Array(-1638384, 17, 0, -1572848, 17, 0, -1507312,
 script = ExtResource("3_0l7gp")
 
 [node name="CollisionShape2D" parent="Level/Duplicants/NuclearWaste/RigidBody2D" index="0"]
-position = Vector2(32.5, 29)
 scale = Vector2(0.919998, 1.08)
