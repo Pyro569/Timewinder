@@ -44,10 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://dx24vccak3qn0" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle1.png" id="33_rg2hq"]
 [ext_resource type="Texture2D" uid="uid://bmqt42hk8apil" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle2.png" id="34_omlcq"]
 [ext_resource type="Texture2D" uid="uid://cwiw0stqkkca" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle3.png" id="35_l8h36"]
-[ext_resource type="Texture2D" uid="uid://5ih1d3y0d2qd" path="res://assets/images/Terrain assets/Magnets/MagnetPast (active).png" id="36_b8bl7"]
 [ext_resource type="Texture2D" uid="uid://dowuy66d044qq" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle4.png" id="36_t23ti"]
 [ext_resource type="Texture2D" uid="uid://qb7akjinuas" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle5.png" id="37_dcqka"]
-[ext_resource type="Texture2D" uid="uid://cddndr1430h7w" path="res://assets/images/Terrain assets/Magnets/MagnetFut (active).png" id="37_rbplt"]
 [ext_resource type="Texture2D" uid="uid://byfgy7ncfxu6m" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle6.png" id="38_0hvw5"]
 [ext_resource type="Texture2D" uid="uid://6hn3a00tcc03" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle7.png" id="39_dkgb0"]
 [ext_resource type="Texture2D" uid="uid://cshdmvc0748e2" path="res://assets/images/Terrain assets/NUKEpuddles/NUKEpuddle8.png" id="40_rokkl"]
@@ -162,12 +160,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("16_m20mm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_b8bl7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_rbplt")
 }],
 "loop": true,
 "name": &"default",

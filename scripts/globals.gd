@@ -9,7 +9,7 @@ var signals = {}
 var cam_delta: Vector2
 
 # TOOD: update this for each new level someone adds
-var levelsCount = 20
+var levelsCount = 9
 
 # Note this will be 1 behind the name of the scene because levels start at one there
 var levelPlayerIsOn = 0
