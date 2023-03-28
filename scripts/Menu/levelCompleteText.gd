@@ -5,7 +5,7 @@ extends RichTextLabel
 func _ready():
 	# TODO: Center text
 	Globals.muted = true
-	if(Globals.levelPlayerIsOn == Globals.levelsCount):
+	if(Globals.levelPlayerIsOn == Globals.levelsCount - 1):
 		"Final level Complete! You've escaped the lab!"
 	else:
 		text = Globals.thisLevels.getCurrentLevel().name + " Complete!"
