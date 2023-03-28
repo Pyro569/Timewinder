@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0d4bjc7l6lej"]
+[gd_scene load_steps=4 format=3 uid="uid://b0d4bjc7l6lej"]
 
 [ext_resource type="PackedScene" uid="uid://cwfiobu0f8y3j" path="res://scenes/levelBase.tscn" id="1_eefhf"]
 [ext_resource type="TileSet" uid="uid://bpmf5c0jgra2j" path="res://assets/level/levelTilemap.tres" id="2_4xmf2"]
 [ext_resource type="Script" path="res://scripts/tilelogic.gd" id="3_72dvt"]
-[ext_resource type="Shape2D" uid="uid://dg50xtd63aair" path="res://assets/playerColl.tres" id="4_amkpd"]
 
 [node name="Node2D" instance=ExtResource("1_eefhf")]
 
@@ -44,7 +43,6 @@ script = ExtResource("3_72dvt")
 z_index = 111
 position = Vector2(32, 31)
 scale = Vector2(1.6, 1.48)
-shape = ExtResource("4_amkpd")
 
 [node name="Area2D" parent="Level/Duplicants/ConveyerBelts/ConvayerBeltUp" index="0"]
 position = Vector2(-64.0002, -63.9998)
