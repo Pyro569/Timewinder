@@ -13,6 +13,7 @@ func _ready():
 @export var speed = 200
 func get_input():
 	if !stop:
+		freeze = false
 		var input_direction = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
 		if input_direction.x < 0:
 			$AnimatedSprite2D.flip_h = true
@@ -21,6 +22,7 @@ func get_input():
 		set_linear_velocity(input_direction * speed)
 	else:
 		set_linear_velocity(Vector2.ZERO)
+		freeze = true
 
 func _physics_process(_delta):
 	#print(position)

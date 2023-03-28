@@ -42,7 +42,7 @@ volume_db = 24.0
 
 [node name="AnimatedSprite2D" parent="Level/Duplicants/MagnetLevelEnd/Area2D" index="1"]
 z_index = 7
-position = Vector2(32, -269)
+position = Vector2(1.00001, -295)
 
 [node name="TravelCounter" parent="Effects" index="2"]
 text = "[W][A][S][D] to move John-E-VI

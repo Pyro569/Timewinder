@@ -18,11 +18,11 @@ func _process(_delta):
 			current_cam = tilemap.future_cam.y
 		else:
 			current_cam = tilemap.past_cam.y
-		print("endmagnet: ", str(current_cam), str($AnimatedSprite2D.position.y))
+		print("endmagnet: ", str(current_cam), str($AnimatedSprite2D.global_position.y))
 		if spaghettiframes > 0:
-			$AnimatedSprite2D.position.y -= 10
+			$AnimatedSprite2D.global_position.y -= 10
 			spaghettiframes -= 1
-			get_node("/root/Node2D/Player/RigidBody2D/AnimatedSprite2D").position = $AnimatedSprite2D.position - Vector2(75, -275)
+			get_node("/root/Node2D/Player/RigidBody2D/AnimatedSprite2D").global_position = $AnimatedSprite2D.global_position + Vector2(0, 325)
 		else:
 			won = false
 			done = true
