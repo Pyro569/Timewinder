@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckx0s37r84ptj"]
+[gd_scene load_steps=12 format=3 uid="uid://ckx0s37r84ptj"]
 
+[ext_resource type="Texture2D" uid="uid://b1k54bprgu5d4" path="res://assets/images/Menu assets/retry.png" id="1_5a6mc"]
 [ext_resource type="Script" path="res://scripts/Menu/levelCompleteText.gd" id="1_ef8y0"]
 [ext_resource type="Texture2D" uid="uid://ce505uytgwrp1" path="res://assets/images/Menu assets/nextLevel.png" id="1_s7gs4"]
 [ext_resource type="Script" path="res://scripts/Menu/menuButtonLevelSelector.gd" id="2_w7jyt"]
@@ -8,9 +9,18 @@
 [ext_resource type="Script" path="res://scripts/Menu/bestWarp.gd" id="8_7g1ty"]
 [ext_resource type="Script" path="res://scripts/Menu/bestTime.gd" id="8_gkioj"]
 [ext_resource type="Script" path="res://scripts/Menu/prevTime.gd" id="10_80rwi"]
+[ext_resource type="Script" path="res://scripts/Menu/retry.gd" id="10_ohvxh"]
 [ext_resource type="Script" path="res://scripts/Menu/prevWarp.gd" id="11_5mkw6"]
 
 [node name="levelWin" type="Node2D"]
+
+[node name="retry" type="Button" parent="."]
+offset_left = 299.0
+offset_top = 170.0
+offset_right = 519.0
+offset_bottom = 305.0
+icon = ExtResource("1_5a6mc")
+script = ExtResource("10_ohvxh")
 
 [node name="nextLevel" type="Button" parent="."]
 offset_left = -104.0
@@ -110,5 +120,6 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Best Time"
 script = ExtResource("8_gkioj")
 
+[connection signal="button_down" from="retry" to="retry" method="_on_button_down"]
 [connection signal="button_down" from="nextLevel" to="nextLevel" method="_on_button_down"]
 [connection signal="button_down" from="mainMenu" to="mainMenu" method="_on_button_down"]
