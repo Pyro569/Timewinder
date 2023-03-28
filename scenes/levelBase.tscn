@@ -1,9 +1,10 @@
-[gd_scene load_steps=66 format=3 uid="uid://cwfiobu0f8y3j"]
+[gd_scene load_steps=67 format=3 uid="uid://cwfiobu0f8y3j"]
 
 [ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_serme"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_2jam3"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
+[ext_resource type="Script" path="res://scenes/pastFutureLabel.gd" id="5_ngpcq"]
 [ext_resource type="Script" path="res://scripts/duplicant/activatees/levelend.gd" id="5_pgmiy"]
 [ext_resource type="Script" path="res://scripts/duplicant/activator.gd" id="5_w6q2s"]
 [ext_resource type="Texture2D" uid="uid://yveyimqcv1rd" path="res://assets/images/Buttons future v1.3/FUTBUTTON.1.png" id="7_p5gyj"]
@@ -290,6 +291,16 @@ script = ExtResource("5_1clpx")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera/Camera2D"]
 stream = ExtResource("4_2jam3")
 volume_db = 14.991
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/Camera2D"]
+z_index = 15
+offset_left = 400.0
+offset_top = -288.0
+offset_right = 576.0
+offset_bottom = -231.0
+theme_override_font_sizes/normal_font_size = 35
+text = "Test"
+script = ExtResource("5_ngpcq")
 
 [node name="Level" type="Node" parent="."]
 

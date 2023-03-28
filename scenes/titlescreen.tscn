@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqjngih1urqoc"]
+[gd_scene load_steps=13 format=3 uid="uid://cqjngih1urqoc"]
 
 [ext_resource type="PackedScene" uid="uid://cwfiobu0f8y3j" path="res://scenes/levelBase.tscn" id="1_ht1pf"]
 [ext_resource type="Script" path="res://scripts/titlescreen.gd" id="2_34dsw"]
@@ -24,6 +24,12 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="SystemFont" id="SystemFont_4cdx1"]
+font_names = PackedStringArray("Fipps")
+
+[sub_resource type="SystemFont" id="SystemFont_ivoyn"]
+font_names = PackedStringArray("Times New Roman")
 
 [node name="Node2D" instance=ExtResource("1_ht1pf")]
 script = ExtResource("2_34dsw")
@@ -67,35 +73,41 @@ shape = SubResource("RectangleShape2D_0oe0v")
 sprite_frames = SubResource("SpriteFrames_010sm")
 animation = &"default"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Effects" index="2"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="Effects" index="2"]
 modulate = Color(0.980392, 0, 0.235294, 1)
-offset_left = 1290.0
-offset_top = -1554.0
-offset_right = 1382.0
-offset_bottom = -1485.0
-scale = Vector2(8.52002, 8.04)
+offset_left = 1286.0
+offset_top = -1517.0
+offset_right = 1767.0
+offset_bottom = -1210.0
+scale = Vector2(1.58834, 1.78033)
+theme_override_fonts/normal_font = SubResource("SystemFont_4cdx1")
+theme_override_font_sizes/normal_font_size = 52
 text = "Timewinder"
 fit_content = true
 autowrap_mode = 0
 tab_size = 9
 
-[node name="Button" type="Button" parent="Effects/RichTextLabel" index="1"]
+[node name="Button" type="Button" parent="Effects/RichTextLabel3" index="1"]
 layout_mode = 0
-offset_left = 19.2488
-offset_top = 19.9005
-offset_right = 65.2488
-offset_bottom = 50.9005
+offset_left = 97.5863
+offset_top = 111.777
+offset_right = 382.586
+offset_bottom = 264.777
 scale = Vector2(1, 0.774758)
+theme_override_fonts/font = SubResource("SystemFont_ivoyn")
+theme_override_font_sizes/font_size = 130
 text = "Start"
 script = ExtResource("4_jpsaw")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Effects" index="3"]
 modulate = Color(0.980392, 0, 0.235294, 1)
-offset_left = 906.0
-offset_top = 622.0
-offset_right = 998.0
-offset_bottom = 691.0
-scale = Vector2(8.52002, 8.04)
+offset_left = 920.0
+offset_top = 656.0
+offset_right = 1401.0
+offset_bottom = 963.0
+scale = Vector2(1.58834, 1.78033)
+theme_override_fonts/normal_font = SubResource("SystemFont_4cdx1")
+theme_override_font_sizes/normal_font_size = 52
 text = "Timewinder"
 fit_content = true
 autowrap_mode = 0
@@ -103,13 +115,15 @@ tab_size = 9
 
 [node name="Button" type="Button" parent="Effects/RichTextLabel2" index="1"]
 layout_mode = 0
-offset_left = 19.2488
-offset_top = 19.9005
-offset_right = 65.2488
-offset_bottom = 50.9005
+offset_left = 97.5863
+offset_top = 111.777
+offset_right = 382.586
+offset_bottom = 264.777
 scale = Vector2(1, 0.774758)
+theme_override_fonts/font = SubResource("SystemFont_ivoyn")
+theme_override_font_sizes/font_size = 130
 text = "Start"
 script = ExtResource("4_jpsaw")
 
-[connection signal="pressed" from="Effects/RichTextLabel/Button" to="Effects/RichTextLabel/Button" method="_on_pressed"]
+[connection signal="pressed" from="Effects/RichTextLabel3/Button" to="Effects/RichTextLabel3/Button" method="_on_pressed"]
 [connection signal="pressed" from="Effects/RichTextLabel2/Button" to="Effects/RichTextLabel2/Button" method="_on_pressed"]
