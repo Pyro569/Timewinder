@@ -1,10 +1,15 @@
 extends Area2D
 
+var spaghettiframes = 0
+
 func _on_body_entered(body):
-	print("ENTER: ", body.get_name())
-	print(Globals.signals)
-	$AnimatedSprite2D.frame = 0
-	$AnimatedSprite2D.frame = 1
-	$AnimatedSprite2D.frame = 2
-	$AnimatedSprite2D.frame = 3
-	get_parent().activate()
+	if spaghettiframes > 30:
+		$AnimatedSprite2D.play()
+		get_parent().activate()
+
+func _on_body_exited(body):
+	$AnimatedSprite2D.play_backwards()
+	get_parent().deactivate()
+
+func _process(delta):
+	spaghettiframes += 1

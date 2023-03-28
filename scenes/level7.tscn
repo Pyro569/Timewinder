@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmogfxmhf0hiu"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="PackedScene" uid="uid://cfhi78bamp256" path="res://scenes/level4.tscn" id="1_gigeb"]
+[ext_resource type="PackedScene" uid="uid://cfhi78bamp256" path="res://scenes/level5.tscn" id="1_gigeb"]
 [ext_resource type="Texture2D" uid="uid://b82lt25amj6jf" path="res://assets/images/Terrain assets/NukeBarrel.v1.png" id="2_bl8gw"]
 [ext_resource type="Texture2D" uid="uid://6vcm70mdhbqa" path="res://assets/images/stopcheating.jpg" id="3_vlaw7"]
 

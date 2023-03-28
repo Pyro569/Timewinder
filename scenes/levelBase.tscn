@@ -1,12 +1,12 @@
-[gd_scene load_steps=67 format=3 uid="uid://cwfiobu0f8y3j"]
+[gd_scene load_steps=69 format=3 uid="uid://cwfiobu0f8y3j"]
 
 [ext_resource type="Shape2D" uid="uid://dg50xtd63aair" path="res://assets/playerColl.tres" id="2_bjvfb"]
 [ext_resource type="Texture2D" uid="uid://babivmmv2jdph" path="res://assets/images/JOHN.v.1/johnDifferentShading.png" id="2_serme"]
 [ext_resource type="Script" path="res://scripts/rigidplayer.gd" id="3_vblnu"]
 [ext_resource type="AudioStream" uid="uid://i5ucau480ry0" path="res://assets/sounds/effects/noTravel.wav" id="4_2jam3"]
-[ext_resource type="Texture2D" uid="uid://dmkigd7bkvhmq" path="res://assets/images/JOHN.v.1/JohnNorth.png" id="4_aoik8"]
+[ext_resource type="Texture2D" uid="uid://csbfpfemi0pav" path="res://assets/images/JOHN.v.1/JohnNorth.png" id="4_aoik8"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_1clpx"]
-[ext_resource type="Texture2D" uid="uid://d11iwk1qk4k47" path="res://assets/images/JOHN.v.1/JohnSouth.png" id="5_e0u7s"]
+[ext_resource type="Texture2D" uid="uid://bpj8dbhq308d5" path="res://assets/images/JOHN.v.1/JohnSouth.png" id="5_e0u7s"]
 [ext_resource type="Script" path="res://scenes/pastFutureLabel.gd" id="5_ngpcq"]
 [ext_resource type="Script" path="res://scripts/duplicant/activatees/levelend.gd" id="5_pgmiy"]
 [ext_resource type="Script" path="res://scripts/duplicant/activator.gd" id="5_w6q2s"]
@@ -100,7 +100,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_18vgl")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
